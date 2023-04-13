@@ -31,48 +31,55 @@ public abstract class Beer {
 
 class IPA extends Beer {
 
-    IPA() {
+    IPA(String beerName) {
         super();
+        name = beerName;
         type = Enums.BeerType.IPA;
+        
         
     }
 }
 class Porter extends Beer {
 
-    Porter() {
+    Porter(String beerName) {
         super();
+        name = beerName;
         type = Enums.BeerType.IPA;
         
     }
 }
 class Sour extends Beer {
 
-    Sour() {
+    Sour(String beerName) {
         super();
+        name = beerName;
         type = Enums.BeerType.IPA;
         
     }
 }
 class Stout extends Beer {
 
-    Stout() {
+    Stout(String beerName) {
         super();
+        name = beerName;
         type = Enums.BeerType.IPA;
         
     }
 }
 class Ale extends Beer {
 
-    Ale() {
+    Ale(String beerName) {
         super();
+        name = beerName;
         type = Enums.BeerType.IPA;
         
     }
 }
 class Lager extends Beer {
 
-    Lager() {
+    Lager(String beerName) {
         super();
+        name = beerName;
         type = Enums.BeerType.IPA;
         
     }
