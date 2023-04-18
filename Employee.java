@@ -38,6 +38,9 @@ class Server extends Employee{
         type = Enums.EmployeeType.Server;
         name = namer.getNext();
     }
+    void serveTables(ArrayList<Customer> customerList){
+
+    }
 }
 
 class Bartender extends Employee{
@@ -48,5 +51,8 @@ class Bartender extends Employee{
         super();
         type = Enums.EmployeeType.Bartender;
         name = namer.getNext();
+    }
+    void tendBar(){
+        
     }
 }
