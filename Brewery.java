@@ -49,7 +49,7 @@ public class Brewery implements SysOut {
     void hireEmployees(){
 
     }
-    void addEmployee(Enums.StaffType t){
+    void addEmployee(Enums.EmployeeType t){
 
     }
     void restockBeer(){
@@ -77,11 +77,26 @@ public class Brewery implements SysOut {
         hireEmployees();
         restockBeer();
 
-        out("The servers are attending tables");
-        ArrayList<Employee> servers = Employee.getStaffByType(employeeList, Enums.EmployeeType.Server);
-        for(Employee e : servers){
-            Server s = (Server) s;
-            s.serveTables();
+        out("The bartenders are serving customers...");
+        /*ArrayList<Employee> bartenders = Employee.getEmployeesByType(employeeList, Enums.EmployeeType.Bartender);
+        for(Employee e : bartenders){
+            Bartender b = (Bartender) e;
+            b.serveBeer();
+        }*/
+        ArrayList<Customer> customers = getCustomers(day);
+        ArrayList<Employee> bartenders =  Employee.getEmployeesByType(employeeList, Enums.EmployeeType.Bartender);
+
+        for (Customer c : customers){
+            out("Customer "+c.name+" wants a "+c.preference);
+            int randomBartender = Utility.rndFromRange(0, bartenders.size()-1);
+            Bartender bartender = (Bartender) bartenders.get(randomBartender);
+            Beer beerSold = bartender.serveBeer(c, beerInStock);
+
+            if(soldBeer != null){
+                soldBeer.add(beerSold);
+                moneyIn(beerSold.price);
+                beerInStock.removeIf(n -> n.name == beerSold.name);
+            }
         }
     }
     void reportOut(Enums.DayOfWeek day){

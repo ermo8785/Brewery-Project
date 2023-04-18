@@ -18,7 +18,7 @@ public abstract class Employee implements SysOut{
     }
 
     // returns how many of each employee type there are
-    static int howManyStaffByType(ArrayList<Employee> employeeList, Enums.EmployeeType t){
+    static int howManyByType(ArrayList<Employee> employeeList, Enums.EmployeeType t){
         int n = 0;
         for (Employee e: employeeList){
             if (e.type == t) {
@@ -27,9 +27,16 @@ public abstract class Employee implements SysOut{
         }
         return n;
     }
+    static ArrayList<Employee> getEmployeesByType(ArrayList<Employee> employeeList, Enums.EmployeeType t) {
+        ArrayList<Employee> subclassInstances = new ArrayList<>();
+        for (Employee e : employeeList) {
+            if (e.type == t) subclassInstances.add(e);
+        }
+        return subclassInstances;
+    }
 }
 
-class Server extends Employee{
+/*class Server extends Employee{
     static List<String> names = Arrays.asList("Fred","Ethel","Lucy","Desi");
     static Namer namer = new Namer(names);
 
@@ -41,7 +48,7 @@ class Server extends Employee{
     void serveTables(ArrayList<Customer> customerList){
 
     }
-}
+}*/
 
 class Bartender extends Employee{
     static List<String> names = Arrays.asList("Fred","Ethel","Lucy","Desi");
@@ -52,7 +59,22 @@ class Bartender extends Employee{
         type = Enums.EmployeeType.Bartender;
         name = namer.getNext();
     }
-    void tendBar(){
-        
+    void serveBeer(Customer c, ArrayList<Beer> beerInStock){
+        double saleChance = .7;
+        if(c.type == Enums.CustomerType.WantsOne) saleChance = .8;
+        if(c,type == Enums.CustomerType.JustLooking) saleChance = .2;
+
+        ArrayList<Beer> desiredList = Beer.getBeerByType(beerInStock, c.preference);
+        Beer b;
+
+        if(c.preference == Enums.BeerType.IPA) saleChance += .1;
+        if(c.preference == Enums.BeerType.Stout) saleChance += .1;
+        if(c.preference == Enums.BeerType.Lager) saleChance += .1;
+        if(c.preference == Enums.BeerType.Sour) saleChance += .1;
+        if(c.preference == Enums.BeerType.Porter) saleChance += .1;
+        if(c.preference == Enums.BeerType.Ale) saleChance += .1;
+
+        double chance = Utility.rnd();
     }
+
 }
