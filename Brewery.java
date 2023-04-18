@@ -68,7 +68,7 @@ public class Brewery implements SysOut {
     }
 
     void happyHourAllDay(Enums.DayOfWeek day){
-
+        out("Nice! Happy Hour All Day!");
     }
 
     void normalDay(Enums.DayOfWeek day){
@@ -92,7 +92,7 @@ public class Brewery implements SysOut {
             Bartender bartender = (Bartender) bartenders.get(randomBartender);
             Beer beerSold = bartender.serveBeer(c, beerInStock);
 
-            if(soldBeer != null){
+            if(beerSold != null){
                 soldBeer.add(beerSold);
                 moneyIn(beerSold.price);
                 beerInStock.removeIf(n -> n.name == beerSold.name);
@@ -100,6 +100,6 @@ public class Brewery implements SysOut {
         }
     }
     void reportOut(Enums.DayOfWeek day){
-
+        
     }
 }
