@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract class Beer {
     String name;
-    int cost;
+    Double cost;
     Double price;
     Double alcVol;
     Enums.BeerType type; 
@@ -12,21 +12,21 @@ public abstract class Beer {
     // Will need beer in stock later on
     int stock;
 
-    Beer(){
+    public Beer(){
 
     }
 
     // utility for getting adjusted cost by beer type
-    double getCost(int low, int high){
-        int cost = Utility.rndFromRange(low, high);
-        /*if (type == Enums.BeerType.IPA) cost = 
-        if (type == Enums.BeerType.Lager) cost = 
-        if (type == Enums.BeerType.Stout) cost = 
-        if (type == Enums.BeerType.Ale) cost = 
-        if (type == Enums.BeerType.Sour) cost = 
-        if (type == Enums.BeerType.Porter) cost = */
+    /*double getCost(int low, int high){
+        //int cost = Utility.rndFromRange(low, high);
+        if (type == Enums.BeerType.IPA) cost = 7.00;
+        if (type == Enums.BeerType.Lager) cost = 6.50;
+        if (type == Enums.BeerType.Stout) cost = 9.00;
+        if (type == Enums.BeerType.Ale) cost = 7.00;
+        if (type == Enums.BeerType.Sour) cost = 5.00;
+        if (type == Enums.BeerType.Porter) cost = 8.00;
         return cost; 
-    }
+    }*/
 }
 
 class IPA extends Beer {
@@ -35,8 +35,9 @@ class IPA extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.IPA;
-        
-        
+        cost = 4.50;
+        price = 7.00;
+        alcVol = 6.00; 
     }
 }
 class Porter extends Beer {
@@ -45,7 +46,9 @@ class Porter extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.IPA;
-        
+        cost = 4.00;
+        price = 8.00;
+        alcVol = 7.1; 
     }
 }
 class Sour extends Beer {
@@ -54,7 +57,9 @@ class Sour extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.IPA;
-        
+        cost = 2.50;
+        price = 5.00;
+        alcVol = 4.5; 
     }
 }
 class Stout extends Beer {
@@ -63,7 +68,9 @@ class Stout extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.IPA;
-        
+        cost = 4.50;
+        price = 9.00;
+        alcVol = 9.1; 
     }
 }
 class Ale extends Beer {
@@ -72,7 +79,9 @@ class Ale extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.IPA;
-        
+        cost = 4.50;
+        price = 7.00;
+        alcVol = 6.0; 
     }
 }
 class Lager extends Beer {
@@ -81,6 +90,8 @@ class Lager extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.IPA;
-        
+        cost = 2.50;
+        price = 6.50;
+        alcVol = 6.00; 
     }
 }

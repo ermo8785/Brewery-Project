@@ -59,13 +59,13 @@ class Bartender extends Employee{
         type = Enums.EmployeeType.Bartender;
         name = namer.getNext();
     }
-    void serveBeer(Customer c, ArrayList<Beer> beerInStock){
+    Beer serveBeer(Customer c, ArrayList<Beer> beerInStock){
         double saleChance = .7;
         if(c.type == Enums.CustomerType.WantsOne) saleChance = .8;
-        if(c,type == Enums.CustomerType.JustLooking) saleChance = .2;
+        if(c.type == Enums.CustomerType.JustLooking) saleChance = .2;
 
-        ArrayList<Beer> desiredList = Beer.getBeerByType(beerInStock, c.preference);
-        Beer b;
+        //ArrayList<Beer> desiredList = Beer.getBeerByType(beerInStock, c.preference);
+        Beer b = beerInStock.get(1);
 
         if(c.preference == Enums.BeerType.IPA) saleChance += .1;
         if(c.preference == Enums.BeerType.Stout) saleChance += .1;
@@ -75,6 +75,15 @@ class Bartender extends Employee{
         if(c.preference == Enums.BeerType.Ale) saleChance += .1;
 
         double chance = Utility.rnd();
+
+        if (chance <= saleChance){
+            out("Customer "+c.name+" got his beer from "+name);
+            return b;
+        }
+        else{
+            out("Customer " + c.name + " decided not to buy a drink.");
+            return null;
+        }
     }
 
 }
