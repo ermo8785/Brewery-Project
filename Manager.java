@@ -166,7 +166,7 @@ class Menu implements SysOut{
     public void ManagerMenu(Brewery Nova, String ManagerName){
         Boolean input = true;
         Scanner myObj = new Scanner(System.in);
-        out("Welcome " + ManagerName + "here are your options as manager of Nova brewery");
+        out("Welcome " + ManagerName + ", here are your options as manager of Nova brewery");
 
         while(input){ //Display menu for different options as manager
             out("Please enter one of the follow options (a,b,c,q) to :");
