@@ -65,7 +65,7 @@ class Bartender extends Employee{
         if(c.type == Enums.CustomerType.JustLooking) saleChance = .2;
 
         //ArrayList<Beer> desiredList = Beer.getBeerByType(beerInStock, c.preference);
-        Beer b = beerInStock.get(1);
+        Beer b = beerInStock.get(0);
 
         if(c.preference == Enums.BeerType.IPA) saleChance += .1;
         if(c.preference == Enums.BeerType.Stout) saleChance += .1;

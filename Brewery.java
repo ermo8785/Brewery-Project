@@ -55,7 +55,7 @@ public class Brewery implements SysOut {
         ArrayList<Customer> customers = new ArrayList<Customer>();
         int customerCount = Utility.rndFromRange(cusMin, cusMax);
         for (int i=1; i<=customerCount; ++i) customers.add(new Customer());
-        out("The FNCD has "+customerCount+" buyers today...");
+        out("Nebula Brewing Co. has "+customerCount+" buyers today...");
 
         return customers;
     }
@@ -91,11 +91,7 @@ public class Brewery implements SysOut {
         restockBeer();
 
         out("The bartenders are serving customers...");
-        /*ArrayList<Employee> bartenders = Employee.getEmployeesByType(employeeList, Enums.EmployeeType.Bartender);
-        for(Employee e : bartenders){
-            Bartender b = (Bartender) e;
-            b.serveBeer();
-        }*/
+        
         ArrayList<Customer> customers = getCustomers(day);
         ArrayList<Employee> bartenders =  Employee.getEmployeesByType(employeeList, Enums.EmployeeType.Bartender);
 
@@ -109,6 +105,9 @@ public class Brewery implements SysOut {
                 soldBeer.add(beerSold);
                 moneyIn(beerSold.price);
                 beerInStock.removeIf(n -> n.name == beerSold.name);
+
+                beerInStock.add(beerSold);
+                moneyOut(beerSold.cost);
             }
         }
     }
