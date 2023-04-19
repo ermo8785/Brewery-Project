@@ -29,9 +29,9 @@ public class Simulator implements SysOut {
             out(">>> Start Simulation Day "+day+" "+dayOfWeek);
             if (dayOfWeek == Enums.DayOfWeek.Mon || dayOfWeek == Enums.DayOfWeek.Wed) brewery.happyHourAllDay(dayOfWeek);  // race days wed and sun
             else brewery.normalDay(dayOfWeek);  // normal stuff on other days
+            out(">>> End Simulation Day "+day+" "+dayOfWeek+"\n");
             Menu menu = new Menu();
             menu.ManagerMenu(brewery, managerName);
-            out(">>> End Simulation Day "+day+" "+dayOfWeek+"\n");
             dayOfWeek = getNextDay(dayOfWeek);  // increment to the next day
         }
     }
