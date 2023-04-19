@@ -7,6 +7,7 @@ public abstract class Beer {
     Double cost;
     Double price;
     Double alcVol;
+    int BeersSold;
     Enums.BeerType type; 
 
     // Will need beer in stock later on
@@ -38,6 +39,7 @@ class IPA extends Beer {
         cost = 4.50;
         price = 7.00;
         alcVol = 6.00; 
+        BeersSold = 0;
     }
 }
 class Porter extends Beer {
@@ -49,6 +51,7 @@ class Porter extends Beer {
         cost = 4.00;
         price = 8.00;
         alcVol = 7.1; 
+        BeersSold = 0;
     }
 }
 class Sour extends Beer {
@@ -60,6 +63,7 @@ class Sour extends Beer {
         cost = 2.50;
         price = 5.00;
         alcVol = 4.5; 
+        BeersSold = 0;
     }
 }
 class Stout extends Beer {
@@ -71,6 +75,7 @@ class Stout extends Beer {
         cost = 4.50;
         price = 9.00;
         alcVol = 9.1; 
+        BeersSold = 0;
     }
 }
 class Ale extends Beer {
@@ -81,7 +86,8 @@ class Ale extends Beer {
         type = Enums.BeerType.IPA;
         cost = 4.50;
         price = 7.00;
-        alcVol = 6.0; 
+        alcVol = 6.0;
+        BeersSold = 0;
     }
 }
 class Lager extends Beer {
@@ -93,5 +99,6 @@ class Lager extends Beer {
         cost = 2.50;
         price = 6.50;
         alcVol = 6.00; 
+        BeersSold = 0;
     }
 }
