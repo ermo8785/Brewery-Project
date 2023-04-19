@@ -1,7 +1,3 @@
-import java.util.ArrayList; 
-import java.util.Arrays;
-import java.util.List;
-
 public abstract class Beer {
     String name;
     Double cost;
@@ -17,17 +13,6 @@ public abstract class Beer {
 
     }
 
-    // utility for getting adjusted cost by beer type
-    /*double getCost(int low, int high){
-        //int cost = Utility.rndFromRange(low, high);
-        if (type == Enums.BeerType.IPA) cost = 7.00;
-        if (type == Enums.BeerType.Lager) cost = 6.50;
-        if (type == Enums.BeerType.Stout) cost = 9.00;
-        if (type == Enums.BeerType.Ale) cost = 7.00;
-        if (type == Enums.BeerType.Sour) cost = 5.00;
-        if (type == Enums.BeerType.Porter) cost = 8.00;
-        return cost; 
-    }*/
 }
 
 class IPA extends Beer {

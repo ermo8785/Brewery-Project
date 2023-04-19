@@ -1,3 +1,4 @@
+import java.util.Scanner;
 // Simulator to cycle for select number of days
 public class Simulator implements SysOut {
     final int numDays;
@@ -20,10 +21,16 @@ public class Simulator implements SysOut {
 
     void run() {
         Brewery brewery = new Brewery();
+        Scanner myObj = new Scanner(System.in);
+        out("Welcome new manager! What is your name? ");
+        String managerName = myObj.nextLine();
+        myObj.close();
         for (int day = 1; day <= numDays; ++day) {
             out(">>> Start Simulation Day "+day+" "+dayOfWeek);
             if (dayOfWeek == Enums.DayOfWeek.Mon || dayOfWeek == Enums.DayOfWeek.Wed) brewery.happyHourAllDay(dayOfWeek);  // race days wed and sun
             else brewery.normalDay(dayOfWeek);  // normal stuff on other days
+            Menu menu = new Menu();
+            menu.ManagerMenu(brewery, managerName);
             out(">>> End Simulation Day "+day+" "+dayOfWeek+"\n");
             dayOfWeek = getNextDay(dayOfWeek);  // increment to the next day
         }
