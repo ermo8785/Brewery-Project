@@ -16,6 +16,19 @@ public class Brewery implements SysOut {
         soldBeer = new ArrayList<>();
 
         budget = 100000;
+
+        BeerFactory beerFactory = new BeerFactory(beerInStock);
+        beerFactory.addMoreBeer("IPA").importBeer();
+        beerFactory.addMoreBeer("Porter").importBeer();
+        beerFactory.addMoreBeer("Stout").importBeer();
+        beerFactory.addMoreBeer("Lager").importBeer();
+        beerFactory.addMoreBeer("Sour").importBeer();
+        beerFactory.addMoreBeer("Ale").importBeer();
+
+        Employee newEmployee = new Bartender();
+        employeeList.add(newEmployee);
+        employeeList.add(newEmployee);
+        employeeList.add(newEmployee);
     }
     double getBudget(){
         return budget;

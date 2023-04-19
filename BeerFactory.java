@@ -5,7 +5,7 @@ public class BeerFactory {
     BeerFactory(ArrayList<Beer> stock){
         beer = stock;
     }
-    /*public moreBeer addMoreBeer(String beerType){
+    public newBeer addMoreBeer(String beerType){
         if (beerType == null){
             return null;
         }
@@ -27,18 +27,96 @@ public class BeerFactory {
         else if(beerType.equalsIgnoreCase("Ale")){
             return new newAle(beer);
         }
-    }*/
+        return null;
+    }
 }
 
-interface moreBeer{
+interface newBeer{
     void importBeer();
 }
 
-abstract class newBeerType implements moreBeer{
+abstract class newBeerType implements newBeer{
     ArrayList<Beer> beer;
     newBeerType(ArrayList<Beer> beerInStock){
         beer = beerInStock;
     }
 }
 
+class newIpa extends newBeerType{
+    newIpa(ArrayList<Beer> beerInStock){
+        super(beerInStock);
+    }
 
+    @Override
+    public void importBeer(){
+        for(int i = 0; i < 2; i++){
+            Beer newBeer = new IPA();
+            beer.add(newBeer);
+        }
+    }
+}
+class newSour extends newBeerType{
+    newSour(ArrayList<Beer> beerInStock){
+        super(beerInStock);
+    }
+
+    @Override
+    public void importBeer(){
+        for(int i = 0; i < 2; i++){
+            Beer newBeer = new Sour();
+            beer.add(newBeer);
+        }
+    }
+}
+class newPorter extends newBeerType{
+    newPorter(ArrayList<Beer> beerInStock){
+        super(beerInStock);
+    }
+
+    @Override
+    public void importBeer(){
+        for(int i = 0; i < 2; i++){
+            Beer newBeer = new Porter();
+            beer.add(newBeer);
+        }
+    }
+}
+class newStout extends newBeerType{
+    newStout(ArrayList<Beer> beerInStock){
+        super(beerInStock);
+    }
+
+    @Override
+    public void importBeer(){
+        for(int i = 0; i < 2; i++){
+            Beer newBeer = new Stout();
+            beer.add(newBeer);
+        }
+    }
+}
+class newLager extends newBeerType{
+    newLager(ArrayList<Beer> beerInStock){
+        super(beerInStock);
+    }
+
+    @Override
+    public void importBeer(){
+        for(int i = 0; i < 2; i++){
+            Beer newBeer = new Lager();
+            beer.add(newBeer);
+        }
+    }
+}
+class newAle extends newBeerType{
+    newAle(ArrayList<Beer> beerInStock){
+        super(beerInStock);
+    }
+
+    @Override
+    public void importBeer(){
+        for(int i = 0; i < 2; i++){
+            Beer newBeer = new Ale();
+            beer.add(newBeer);
+        }
+    }
+}
