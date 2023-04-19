@@ -117,8 +117,34 @@ class showInventory implements Manager_interface, SysOut{ // Function will show 
 }
 
 class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer when it is running low
+    Scanner restockObj = new Scanner(System.in);
     public String execute(Brewery Nova){
-        
+        out("Which beer would you like to stock? (Please enter the name of the beer as it is on the list above.)");
+        String beerToStock = restockObj.nextLine();
+        Boolean restocked = false;
+        String returnBeer;
+        Boolean loop = true;
+        while(loop){
+            for (Beer i: Nova.beerInStock){
+                if (i.name == beerToStock){
+                    i.stock = i.stock + 200;
+                    restocked = true;
+                }
+                if(restocked){
+                    loop = false;
+                }
+                else {
+                    out("Whoops looks like the beer is not on the list!");
+                }
+            }
+
+        }
+        if (restocked){
+            loop = false;
+            returnBeer = "Beer has been stocked!";
+        }
+        else returnBeer = "Unable to sock beer.";
+        return (returnBeer);
     }
 }
 /* 
@@ -174,6 +200,8 @@ class Menu implements SysOut{
                         switch(option){
                             case "1":
                                 //Gives manager option to restock beer.
+                                restockBeer beer = new restockBeer();
+                                out("Result:" + beer);
                                 myInputB.close();
                                 break;
 
