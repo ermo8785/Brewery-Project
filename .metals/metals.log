@@ -1451,3 +1451,15 @@ org.eclipse.jdt.core.compiler.InvalidInputException: Underscores_In_Literals_Not
 2023.04.18 15:58:40 INFO  Shutting down server
 2023.04.18 15:58:40 INFO  shutting down Metals
 2023.04.18 15:58:40 INFO  Exiting server
+2023.04.19 15:12:31 INFO  Started: Metals version 0.11.11 in workspace '/Users/raf/Documents/OOAD/Brewery-Project' for client Visual Studio Code 1.77.1.
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/Users/raf/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/outr/scribe-slf4j_2.13/3.11.0/scribe-slf4j_2.13-3.11.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2023.04.19 15:12:32 INFO  time: initialize in 0.61s
+2023.04.19 15:12:33 WARN  Build server is not auto-connectable.
+2023.04.19 15:12:33 WARN  no build tool detected in workspace '/Users/raf/Documents/OOAD/Brewery-Project'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.04.19 15:12:33 WARN  no build target for: /Users/raf/Documents/OOAD/Brewery-Project/Brewery.java
+2023.04.19 15:12:34 INFO  time: code lens generation in 1.28s
