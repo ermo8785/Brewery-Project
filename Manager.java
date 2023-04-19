@@ -102,6 +102,14 @@ class removeBeer implements Manager_interface, SysOut{
     }
 }
 
+/* 
+class showInventory implements Manager_interface, SysOut{
+    public String execute(Brewery Nova){
+
+    }
+
+}
+
 class hireEmployee implements Manager_interface, SysOut{
     public String execute(Brewery Nova){
 
@@ -114,7 +122,7 @@ class fireEmployee implements Manager_interface, SysOut{
     public String execute(Brewery Nova){
     }
 }
-
+*/
 
 class Menu implements SysOut{
     public void ManagerMenu(Brewery Nova, String ManagerName){
@@ -142,11 +150,25 @@ class Menu implements SysOut{
                 case "b":
                     //Checkout beer inventory
                     Boolean inputB = true;
-                    Scanner myInputB = new Scanner(system.in);
+                    Scanner myInputB = new Scanner(System.in);
                     while(inputB){
                         out("Enter the number of the option you wish to choose.");
                         out("1: Checkout beer stock.");
-                        out("2: Checkout beer sales.")
+                        out("2: Checkout beer sales.");
+                        String option = myInputB.nextLine();
+
+                        switch(option){
+                            case "1":
+                                //Shows the manager the beer with the stock remaining in inventory
+                                myInputB.close();
+                                break;
+
+                            case "2":
+                                // Shows the manager the beer sales by beer name
+                                myInputB.close();
+                                break;
+
+                        }
                     }
                     break;
 
