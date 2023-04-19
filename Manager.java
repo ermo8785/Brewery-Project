@@ -167,8 +167,7 @@ class Menu implements SysOut{
         Boolean input = true;
         Scanner myObj = new Scanner(System.in);
         out("Welcome " + ManagerName + ", here are your options as manager of Nova brewery");
-
-        while(input){ //Display menu for different options as manager
+        while(input & myObj.hasNextLine()){ //Display menu for different options as manager
             out("Please enter one of the follow options (a,b,c,q) to :");
             out("a: Checkout employees");
             out("b: Check beer and see if we need more of a specific kind.");

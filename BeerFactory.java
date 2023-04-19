@@ -49,7 +49,7 @@ class newIpa extends newBeerType{
 
     @Override
     public void importBeer(){
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < 30; i++){
             Beer newBeer = new IPA();
             beer.add(newBeer);
         }
@@ -62,7 +62,7 @@ class newSour extends newBeerType{
 
     @Override
     public void importBeer(){
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < 30; i++){
             Beer newBeer = new Sour();
             beer.add(newBeer);
         }
@@ -75,7 +75,7 @@ class newPorter extends newBeerType{
 
     @Override
     public void importBeer(){
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < 30; i++){
             Beer newBeer = new Porter();
             beer.add(newBeer);
         }
@@ -88,7 +88,7 @@ class newStout extends newBeerType{
 
     @Override
     public void importBeer(){
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < 30; i++){
             Beer newBeer = new Stout();
             beer.add(newBeer);
         }
@@ -101,7 +101,7 @@ class newLager extends newBeerType{
 
     @Override
     public void importBeer(){
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < 30; i++){
             Beer newBeer = new Lager();
             beer.add(newBeer);
         }
@@ -114,7 +114,7 @@ class newAle extends newBeerType{
 
     @Override
     public void importBeer(){
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < 30; i++){
             Beer newBeer = new Ale();
             beer.add(newBeer);
         }
