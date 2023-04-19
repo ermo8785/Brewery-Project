@@ -102,14 +102,26 @@ class removeBeer implements Manager_interface, SysOut{
     }
 }
 
-/* 
-class showInventory implements Manager_interface, SysOut{
+class showInventory implements Manager_interface, SysOut{ // Function will show the beer along with how many of these beers have sold 
+    public ArrayList<Beer> beerInventory = new ArrayList<>();
+    public ArrayList<String> sBeerInventory = new ArrayList<>();
+    StringBuilder Beers = new StringBuilder();
     public String execute(Brewery Nova){
+        for (Beer i: Nova.beerInStock){
+            Beers.append(i.name + " " + i.BeersSold + " " + i.stock+ "\n");
+        }
 
+        return Beers.toString();
     }
 
 }
 
+class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer when it is running low
+    public String execute(Brewery Nova){
+        
+    }
+}
+/* 
 class hireEmployee implements Manager_interface, SysOut{
     public String execute(Brewery Nova){
 
@@ -152,19 +164,21 @@ class Menu implements SysOut{
                     Boolean inputB = true;
                     Scanner myInputB = new Scanner(System.in);
                     while(inputB){
+                        showInventory BeerInventory = new showInventory();
+                        out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory + "\n"); //Shows the beer name, beers sold, and beer in stock
                         out("Enter the number of the option you wish to choose.");
-                        out("1: Checkout beer stock.");
-                        out("2: Checkout beer sales.");
+                        out("1: Restock Beer.");
+                        out("2: Quit.");
                         String option = myInputB.nextLine();
 
                         switch(option){
                             case "1":
-                                //Shows the manager the beer with the stock remaining in inventory
+                                //Gives manager option to restock beer.
                                 myInputB.close();
                                 break;
 
                             case "2":
-                                // Shows the manager the beer sales by beer name
+                                //Will quit the menu and go back 
                                 myInputB.close();
                                 break;
 
