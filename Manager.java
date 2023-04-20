@@ -163,88 +163,150 @@ class fireEmployee implements Manager_interface, SysOut{
 */
 
 class Menu implements SysOut{
-    public void ManagerMenu(Brewery Nova, String ManagerName){
-        Boolean input = true;
-        Scanner myObj = new Scanner(System.in);
-        out("Welcome " + ManagerName + ", here are your options as manager of Nebula Brewing Co.");
-        while(input && myObj.hasNextLine()){ //Display menu for different options as manager
-            out("Please enter one of the follow options (a,b,c,q) to :");
-            out("a: Checkout employees");
-            out("b: Check beer and see if we need more of a specific kind.");
-            out("c: Check to see if beer is selling and/or create a new beer.");
-            out("q: quit");
-            String breweryInput = myObj.nextLine();
-
-            switch(breweryInput){
-                default:
-                    out("You have no selcted a valid choice");
-                    ManagerMenu(Nova, ManagerName);
-                    break;
-
-                case "q":
-                    input = false;
-                    break;
-
-                case "a":
-                    //Checkout empoyees and any issues going on with them.
-                    break;
-
-                case "b":
-                    //Checkout beer inventory
-                    Boolean inputB = true;
-                    Scanner myInputB = new Scanner(System.in);
-                    while(inputB && myInputB.hasNextLine()){
-                        showInventory BeerInventory = new showInventory();
-                        out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory + "\n"); //Shows the beer name, beers sold, and beer in stock
-                        out("Enter the number of the option you wish to choose.");
-                        out("1: Restock Beer.");
-                        out("2: Quit.");
-                        String option = myInputB.nextLine();
-
-                        switch(option){
-                            case "1":
-                                //Gives manager option to restock beer.
-                                restockBeer beer = new restockBeer();
-                                out("Result:" + beer);
-                                break;
-
-                            case "2":
-                                //Will quit the menu and go back 
-                                break;
-
-                        }
-                    }
-                    myInputB.close();
-                    break;
-
-                case "c":
-                    Boolean inputC = true;
-                    Scanner myInputC = new Scanner(System.in);
-                    while(inputC && myInputC.hasNextLine()){
-                        out("Enter the number of the option you wish to choose.");
-                        out("1: Add a new beer.");
-                        out("2: Remove a beer.");
-                        String option = myInputC.nextLine();
-
-                        switch(option){
-                            case "1": //Option to add beer
-                                addNewBeer add = new addNewBeer();
-                                out("You have successfully created new brew " + add + ".");
-                                break;
-
-                            case "2": //Option to remove beer 
-                                removeBeer remove = new removeBeer();
-                                out("The beer " + remove + " has been removed.");
-                                break;
-
-                        }
-                    }
-                    myInputC.close();
-                    break;
-                    
-            }
-
+    public void ManagerMenu(Brewery Nova, String ManagerName) {
+    Scanner scanner = new Scanner(System.in);
+    //boolean running = true;
+    String option;
+    //boolean inventoryRunning = false;
+    //boolean creationRunning = false;
+    do{
+        System.out.println("Welcome " + ManagerName + ", here are your options as manager of Nebula Brewing Co.");
+        System.out.println("Please enter one of the following options (a,b,c,q):");
+        System.out.println("a: Checkout employees");
+        System.out.println("b: Check beer and see if we need more of a specific kind.");
+        System.out.println("c: Check to see if beer is selling and/or create a new beer.");
+        System.out.println("q: quit");
+        option = scanner.nextLine();
+        if(!scanner.hasNextLine()){
+            break;
         }
-        myObj.close();
+        /*if (option.equals("q")) {
+            running = false;
+        }*/
+        else if (option.equals("a")) {
+            // Checkout employees and any issues going on with them.
+        } else if (option.equals("b")) {
+            //inventoryRunning = true;
+            restockBeerMenu();
+        } else if (option.equals("c")) {
+            //creationRunning = true;
+            beerCreationMenu();
+        } else {
+            System.out.println("Invalid input. Please enter a valid option.");
+        }
+    }while (option != "q");
+    scanner.close();
+    /*while (running) {
+        System.out.println("Welcome " + ManagerName + ", here are your options as manager of Nebula Brewing Co.");
+        System.out.println("Please enter one of the following options (a,b,c,q):");
+        System.out.println("a: Checkout employees");
+        System.out.println("b: Check beer and see if we need more of a specific kind.");
+        System.out.println("c: Check to see if beer is selling and/or create a new beer.");
+        System.out.println("q: quit");
+
+        //String option = scanner.nextLine();
+        if(!scanner.hasNextLine()){
+            break;
+        }
+        if (option.equals("q")) {
+            running = false;
+        }
+        else if (option.equals("a")) {
+            // Checkout employees and any issues going on with them.
+        } else if (option.equals("b")) {
+            //inventoryRunning = true;
+            restockBeerMenu();
+        } else if (option.equals("c")) {
+            //creationRunning = true;
+            beerCreationMenu();
+        } else {
+            System.out.println("Invalid input. Please enter a valid option.");
+        }*/
+
+        /*while (inventoryRunning || scanner.hasNextLine()) {
+            showInventory BeerInventory = new showInventory();
+            System.out.println("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory + "\n"); //Shows the beer name, beers sold, and beer in stock
+            System.out.println("Enter the number of the option you wish to choose.");
+            System.out.println("1: Restock Beer.");
+            System.out.println("2: Quit.");
+
+            String inventoryOption = scanner.nextLine();
+            if (inventoryOption.equals("1")) {
+                // Gives manager option to restock beer.
+                restockBeer beer = new restockBeer();
+                System.out.println("Result: " + beer);
+            } else if (inventoryOption.equals("2")) {
+                // Will quit the inventory menu and go back to main menu
+                inventoryRunning = false;
+            } else {
+                System.out.println("Invalid input. Please enter a valid option.");
+            }
+        }
+
+        while (creationRunning || scanner.hasNextLine()) {
+            System.out.println("Enter the number of the option you wish to choose.");
+            System.out.println("1: Add a new beer.");
+            System.out.println("2: Remove a beer.");
+
+            String creationOption = scanner.nextLine();
+            if (creationOption.equals("1")) { // Option to add beer
+                addNewBeer add = new addNewBeer();
+                System.out.println("You have successfully created new brew " + add + ".");
+            } else if (creationOption.equals("2")) { // Option to remove beer
+                removeBeer remove = new removeBeer();
+                System.out.println("The beer " + remove + " has been removed.");
+            } else {
+                System.out.println("Invalid input. Please enter a valid option.");
+            }
+        }*/
     }
+    //scanner.close();
+    
+    public void restockBeerMenu(){
+        boolean inventoryRunning = true;
+        Scanner scanner = new Scanner(System.in);
+        while (inventoryRunning) {
+            showInventory BeerInventory = new showInventory();
+            System.out.println("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory + "\n"); //Shows the beer name, beers sold, and beer in stock
+            System.out.println("Enter the number of the option you wish to choose.");
+            System.out.println("1: Restock Beer.");
+            System.out.println("2: Quit.");
+
+            String inventoryOption = scanner.nextLine();
+            if (inventoryOption.equals("1")) {
+                // Gives manager option to restock beer.
+                restockBeer beer = new restockBeer();
+                System.out.println("Result: " + beer);
+            } else if (inventoryOption.equals("2")) {
+                // Will quit the inventory menu and go back to main menu
+                inventoryRunning = false;
+            } else {
+                System.out.println("Invalid input. Please enter a valid option.");
+            }
+        }
+        scanner.close();
+    }
+
+    public void beerCreationMenu(){
+        boolean creationRunning = true;
+        Scanner scanner = new Scanner(System.in);
+        while (creationRunning) {
+            System.out.println("Enter the number of the option you wish to choose.");
+            System.out.println("1: Add a new beer.");
+            System.out.println("2: Remove a beer.");
+
+            String creationOption = scanner.nextLine();
+            if (creationOption.equals("1")) { // Option to add beer
+                addNewBeer add = new addNewBeer();
+                System.out.println("You have successfully created new brew " + add + ".");
+            } else if (creationOption.equals("2")) { // Option to remove beer
+                removeBeer remove = new removeBeer();
+                System.out.println("The beer " + remove + " has been removed.");
+            } else {
+                System.out.println("Invalid input. Please enter a valid option.");
+            }
+        }
+        scanner.close();
+    }
+
 }
