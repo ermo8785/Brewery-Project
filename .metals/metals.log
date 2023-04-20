@@ -11,3 +11,40 @@ SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
 2023.04.20 12:33:55 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
 2023.04.20 12:33:57 INFO  time: code lens generation in 1.68s
 2023.04.20 12:33:57 INFO  time: code lens generation in 1.9s
+2023.04.20 12:38:04 WARN  Running javac-semanticdb failed for file:///Users/ericsimac/OOAD/Brewery-Project/Manager.java. Output:
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:166: error: illegal start of type
+<<<<<<< HEAD
+^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:166: error: > expected
+<<<<<<< HEAD
+            ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:167: error: illegal start of type
+    public void ManagerMenu(Brewery Nova, String ManagerName){
+    ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:258: error: illegal start of type
+=======
+^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:405: error: illegal start of type
+>>>>>>> 97ddf2c99925670037267305a651817a70135a92
+^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:405: error: <identifier> expected
+>>>>>>> 97ddf2c99925670037267305a651817a70135a92
+                                                ^
+6 errors
+2023.04.20 12:38:10 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+2023.04.20 12:38:11 WARN  Running javac-semanticdb failed for file:///Users/ericsimac/OOAD/Brewery-Project/Manager.java. Output:
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:239: error: illegal start of expression
+        }*/
+         ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:239: error: illegal start of expression
+        }*/
+          ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:240: error: illegal start of expression
+    }
+    ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:243: error: illegal start of expression
+    public void restockBeerMenu(){
+    ^
+4 errors
+Apr 20, 2023 12:38:16 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace

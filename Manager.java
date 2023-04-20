@@ -167,14 +167,13 @@ class Menu implements SysOut{
         Boolean input = true;
         Scanner myObj = new Scanner(System.in);
         out("Welcome " + ManagerName + ", here are your options as manager of Nebula Brewing Co.");
-        while(input){ //Display menu for different options as manager
+        while(input && myObj.hasNextLine()){ //Display menu for different options as manager
             out("Please enter one of the follow options (a,b,c,q) to :");
             out("a: Checkout employees");
             out("b: Check beer and see if we need more of a specific kind.");
             out("c: Check to see if beer is selling and/or create a new beer.");
             out("q: quit");
             String breweryInput = myObj.nextLine();
-    
 
             switch(breweryInput){
                 default:
@@ -182,20 +181,18 @@ class Menu implements SysOut{
                     ManagerMenu(Nova, ManagerName);
                     break;
 
-                case "a":
+                case "q":
                     input = false;
                     break;
 
-                case "b":
+                case "a":
                     //Checkout empoyees and any issues going on with them.
                     break;
 
-                case "c":
+                case "b":
                     //Checkout beer inventory
-
                     Boolean inputB = true;
                     Scanner myInputB = new Scanner(System.in);
-                
                     while(inputB && myInputB.hasNextLine()){
                         showInventory BeerInventory = new showInventory();
                         out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory + "\n"); //Shows the beer name, beers sold, and beer in stock
@@ -218,12 +215,9 @@ class Menu implements SysOut{
                         }
                     }
                     myInputB.close();
-                
-
                     break;
 
-                case "d":
-             
+                case "c":
                     Boolean inputC = true;
                     Scanner myInputC = new Scanner(System.in);
                     while(inputC && myInputC.hasNextLine()){
@@ -232,26 +226,64 @@ class Menu implements SysOut{
                         out("2: Remove a beer.");
                         String option = myInputC.nextLine();
 
-                        switch(option){
-                            case "1": //Option to add beer
-                                addNewBeer add = new addNewBeer();
-                                out("You have successfully created new brew " + add + ".");
-                                break;
+            String creationOption = scanner.nextLine();
+            if (creationOption.equals("1")) { // Option to add beer
+                addNewBeer add = new addNewBeer();
+                System.out.println("You have successfully created new brew " + add + ".");
+            } else if (creationOption.equals("2")) { // Option to remove beer
+                removeBeer remove = new removeBeer();
+                System.out.println("The beer " + remove + " has been removed.");
+            } else {
+                System.out.println("Invalid input. Please enter a valid option.");
+            }
+        }*/
+    }
+    //scanner.close();
+    
+    public void restockBeerMenu(){
+        boolean inventoryRunning = true;
+        Scanner scanner = new Scanner(System.in);
+        while (inventoryRunning) {
+            showInventory BeerInventory = new showInventory();
+            System.out.println("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory + "\n"); //Shows the beer name, beers sold, and beer in stock
+            System.out.println("Enter the number of the option you wish to choose.");
+            System.out.println("1: Restock Beer.");
+            System.out.println("2: Quit.");
 
-                            case "2": //Option to remove beer 
-                                removeBeer remove = new removeBeer();
-                                out("The beer " + remove + " has been removed.");
-                                break;
+            String inventoryOption = scanner.nextLine();
+            if (inventoryOption.equals("1")) {
+                // Gives manager option to restock beer.
+                restockBeer beer = new restockBeer();
+                System.out.println("Result: " + beer);
+            } else if (inventoryOption.equals("2")) {
+                // Will quit the inventory menu and go back to main menu
+                inventoryRunning = false;
+            } else {
+                System.out.println("Invalid input. Please enter a valid option.");
+            }
+        }
+        scanner.close();
+    }
 
-                        }
-                    }
-                    myInputC.close();
-                    break;
-                    
+    public void beerCreationMenu(){
+        boolean creationRunning = true;
+        Scanner scanner = new Scanner(System.in);
+        while (creationRunning) {
+            System.out.println("Enter the number of the option you wish to choose.");
+            System.out.println("1: Add a new beer.");
+            System.out.println("2: Remove a beer.");
+
+            String creationOption = scanner.nextLine();
+            if (creationOption.equals("1")) { // Option to add beer
+                addNewBeer add = new addNewBeer();
+                System.out.println("You have successfully created new brew " + add + ".");
+            } else if (creationOption.equals("2")) { // Option to remove beer
+                removeBeer remove = new removeBeer();
+                System.out.println("The beer " + remove + " has been removed.");
+            } else {
+                System.out.println("Invalid input. Please enter a valid option.");
             }
         }
         myObj.close();
-        
     }
-    
 }
