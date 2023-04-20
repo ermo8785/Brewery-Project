@@ -24,7 +24,6 @@ public class Simulator implements SysOut {
         Scanner myObj = new Scanner(System.in);
         out("Welcome new manager! What is your name? ");
         String managerName = myObj.nextLine();
-        myObj.close();
         for (int day = 1; day <= numDays; ++day) {
             out(">>> Start Simulation Day "+day+" "+dayOfWeek);
             if (dayOfWeek == Enums.DayOfWeek.Mon || dayOfWeek == Enums.DayOfWeek.Wed) brewery.happyHourAllDay(dayOfWeek);  // race days wed and sun
@@ -34,5 +33,6 @@ public class Simulator implements SysOut {
             menu.ManagerMenu(brewery, managerName);
             dayOfWeek = getNextDay(dayOfWeek);  // increment to the next day
         }
+        myObj.close();
     }
 }
