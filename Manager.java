@@ -167,13 +167,14 @@ class Menu implements SysOut{
         Boolean input = true;
         Scanner myObj = new Scanner(System.in);
         out("Welcome " + ManagerName + ", here are your options as manager of Nebula Brewing Co.");
-        while(input && myObj.hasNextLine()){ //Display menu for different options as manager
+        while(input){ //Display menu for different options as manager
             out("Please enter one of the follow options (a,b,c,q) to :");
             out("a: Checkout employees");
             out("b: Check beer and see if we need more of a specific kind.");
             out("c: Check to see if beer is selling and/or create a new beer.");
             out("q: quit");
             String breweryInput = myObj.nextLine();
+    
 
             switch(breweryInput){
                 default:
@@ -181,18 +182,20 @@ class Menu implements SysOut{
                     ManagerMenu(Nova, ManagerName);
                     break;
 
-                case "q":
+                case "a":
                     input = false;
                     break;
 
-                case "a":
+                case "b":
                     //Checkout empoyees and any issues going on with them.
                     break;
 
-                case "b":
+                case "c":
                     //Checkout beer inventory
+
                     Boolean inputB = true;
                     Scanner myInputB = new Scanner(System.in);
+                
                     while(inputB && myInputB.hasNextLine()){
                         showInventory BeerInventory = new showInventory();
                         out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory + "\n"); //Shows the beer name, beers sold, and beer in stock
@@ -215,9 +218,12 @@ class Menu implements SysOut{
                         }
                     }
                     myInputB.close();
+                
+
                     break;
 
-                case "c":
+                case "d":
+             
                     Boolean inputC = true;
                     Scanner myInputC = new Scanner(System.in);
                     while(inputC && myInputC.hasNextLine()){
@@ -243,8 +249,9 @@ class Menu implements SysOut{
                     break;
                     
             }
-
         }
         myObj.close();
+        
     }
+    
 }
