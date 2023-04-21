@@ -36,7 +36,7 @@ class addNewBeer implements Manager_interface, SysOut{
         Scanner myObj1 = new Scanner (System.in);
         out("What would you like to name your beer?");
         String newBeerName = myObj1.nextLine();
-        myObj1.close();
+    
 
         //Need to get the type of beer 
         Scanner myObj2 = new Scanner(System.in);
@@ -47,9 +47,10 @@ class addNewBeer implements Manager_interface, SysOut{
                 newBeer(newBeerName,beerInput);
                 input = false;
             }
+            else {
+                out("The beer you entered does not seem to be on here!");
+            }
         }
-        myObj2.close();
-
         return(newBeerName);
     }
 
@@ -192,7 +193,8 @@ class Menu implements SysOut{
                     Scanner myInputB = new Scanner(System.in);
                     while(inputB){
                         showInventory BeerInventory = new showInventory();
-                        out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory + "\n"); //Shows the beer name, beers sold, and beer in stock
+
+                        out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory.execute(Nova) + "\n"); //Shows the beer name, beers sold, and beer in stock
                         out("Enter the number of the option you wish to choose.");
                         out("1: Restock Beer.");
                         out("2: Quit.");
@@ -203,6 +205,7 @@ class Menu implements SysOut{
                                 //Gives manager option to restock beer.
                                 restockBeer beer = new restockBeer();
                                 out("Result:" + beer);
+                                inputB = false;
                                 break;
 
                             case "2":
@@ -221,12 +224,13 @@ class Menu implements SysOut{
                         out("Enter the number of the option you wish to choose.");
                         out("1: Add a new beer.");
                         out("2: Remove a beer.");
+                        out("3: To Quit.");
                         String option = myInputC.nextLine();
 
                         switch(option){
                             case "1": //Option to add beer
                                 addNewBeer add = new addNewBeer();
-                                out("You have successfully created new brew " + add + ".");
+                                out(add.execute(Nova));
                                 break;
 
                             case "2": //Option to remove beer 
