@@ -20,14 +20,30 @@ interface Manager_interface {
 
 class addNewBeer implements Manager_interface, SysOut{
     void newBeer(String beerName, String b){ //Helper function to create a new beer 
-        Beer n = null;
-        if (b == Enums.BeerType.IPA.toString()) n = new IPA(beerName);
-        if (b == Enums.BeerType.Ale.toString()) n = new Ale(beerName);
-        if (b == Enums.BeerType.Sour.toString()) n = new Sour(beerName);
-        if (b == Enums.BeerType.Stout.toString()) n = new Stout(beerName);
-        if (b == Enums.BeerType.Porter.toString()) n = new Porter(beerName);
-        if (b == Enums.BeerType.Lager.toString()) n = new Lager(beerName);
-        out("You have created " + n.name);
+        if (b == Enums.BeerType.IPA.toString()){
+            Beer n = new IPA(beerName);
+            out("You have created " + n.name);
+        } 
+        else if (b == Enums.BeerType.Ale.toString()) {
+             Beer n = new Ale(beerName);
+             out("You have created " + n.name);
+        }
+        else if (b == Enums.BeerType.Sour.toString()) {
+            Beer n = new Sour(beerName);
+            out("You have created " + n.name);
+        }
+        else if (b == Enums.BeerType.Stout.toString()){
+             Beer n = new Stout(beerName);
+             out("You have created " + n.name);
+        }
+        else if (b == Enums.BeerType.Porter.toString()) {
+            Beer n = new Porter(beerName);
+            out("You have created " + n.name);
+        }
+        else if (b == Enums.BeerType.Lager.toString()) {
+            Beer n = new Lager(beerName);
+            out("You have created " + n.name);
+        }
     } 
 
     public String execute(Brewery Nova){
@@ -43,13 +59,41 @@ class addNewBeer implements Manager_interface, SysOut{
         while (input){
             out("Please type in one of the following kinds of beer you would like to add.(IPA, Lager, Stout, Ale, Sour, Porter)");
             String beerInput = myObj2.nextLine();
-            if (beerInput.toLowerCase() == "ipa" || beerInput.toLowerCase() == "lager" || beerInput.toLowerCase() == "stout" || beerInput.toLowerCase() == "ale" || beerInput.toLowerCase() == "sour" || beerInput.toLowerCase() == "porter"){
-                newBeer(newBeerName,beerInput);
-                input = false;
+            switch(beerInput.toLowerCase()){
+                case "ipa":
+                    newBeer(newBeerName,beerInput);
+                    input = false;
+                    break;
+
+                case "lager":
+                    newBeer(newBeerName,beerInput);
+                    input = false; 
+                    break;
+
+                case "stout":
+                    newBeer(newBeerName,beerInput);
+                    input = false; 
+                    break;
+
+                case "ale":
+                    newBeer(newBeerName,beerInput);
+                    input = false; 
+                    break;
+
+                case "sour":
+                    newBeer(newBeerName,beerInput);
+                    input = false; 
+                    break;
+
+                case "porter":
+                    newBeer(newBeerName,beerInput);
+                    input = false; 
+                    break;
+
+                default:
+                    out("This beer type does not match any of the options. Please enter it again.");
             }
-            else {
-                out("The beer you entered does not seem to be on here!");
-            }
+            
         }
         return(newBeerName);
     }
@@ -136,6 +180,7 @@ class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer
                 }
                 else {
                     out("Whoops looks like the beer is not on the list!");
+                    
                 }
             }
 
@@ -204,7 +249,7 @@ class Menu implements SysOut{
                             case "1":
                                 //Gives manager option to restock beer.
                                 restockBeer beer = new restockBeer();
-                                out("Result:" + beer);
+                                out("Result:" + beer.execute(Nova));
                                 inputB = false;
                                 break;
 
@@ -230,7 +275,7 @@ class Menu implements SysOut{
                         switch(option){
                             case "1": //Option to add beer
                                 addNewBeer add = new addNewBeer();
-                                out(add.execute(Nova));
+                                out("The beer " + add.execute(Nova) + " has been added!");
                                 break;
 
                             case "2": //Option to remove beer 
