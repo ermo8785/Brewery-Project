@@ -76,7 +76,7 @@ class Bartender extends Employee{
 
         double chance = Utility.rnd();
 
-        if (chance <= saleChance){
+        if (chance <= saleChance){ // TODO: Customer needs to buy a specfic beer from the inventory and you can reduce the ounces and add to beers sold to that specfic beer 
             out("Customer "+c.name+" got his beer from "+name);
             return b;
         }
