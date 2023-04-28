@@ -8,7 +8,7 @@ public abstract class Beer {
     int beerStockOunces;
 
     // Will need beer in stock later on
-    int stock;
+    //int stock;
 
     public Beer(){
 
@@ -26,6 +26,7 @@ class IPA extends Beer {
         price = 7.00;
         alcVol = 6.00; 
         BeersSold = 0;
+        beerStockOunces = 8000;
         
     }
     IPA(String beerName) {
@@ -49,7 +50,7 @@ class Porter extends Beer {
         price = 8.00;
         alcVol = 7.1; 
         BeersSold = 0;
-        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
+        beerStockOunces = 0; // Will cost 400 dollars to make 8000 ounces
     }
     Porter(String beerName) {
         super();

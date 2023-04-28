@@ -19,33 +19,6 @@ interface Manager_interface {
 }
 
 class addNewBeer implements Manager_interface, SysOut{
-    void newBeer(String beerName, String b){ //Helper function to create a new beer 
-        if (b == Enums.BeerType.IPA.toString()){
-            Beer n = new IPA(beerName);
-            out("You have created " + n.name);
-        } 
-        else if (b == Enums.BeerType.Ale.toString()) {
-             Beer n = new Ale(beerName);
-             out("You have created " + n.name);
-        }
-        else if (b == Enums.BeerType.Sour.toString()) {
-            Beer n = new Sour(beerName);
-            out("You have created " + n.name);
-        }
-        else if (b == Enums.BeerType.Stout.toString()){
-             Beer n = new Stout(beerName);
-             out("You have created " + n.name);
-        }
-        else if (b == Enums.BeerType.Porter.toString()) {
-            Beer n = new Porter(beerName);
-            out("You have created " + n.name);
-        }
-        else if (b == Enums.BeerType.Lager.toString()) {
-            Beer n = new Lager(beerName);
-            out("You have created " + n.name);
-        }
-    } 
-
     public String execute(Brewery Nova){
         Boolean input = true;
         //Takes in the name of the beer which is an input made by the manager/user
@@ -57,37 +30,44 @@ class addNewBeer implements Manager_interface, SysOut{
         //Need to get the type of beer 
         Scanner myObj2 = new Scanner(System.in);
         while (input){
+            Beer n;
             out("Please type in one of the following kinds of beer you would like to add.(IPA, Lager, Stout, Ale, Sour, Porter)");
             String beerInput = myObj2.nextLine();
             switch(beerInput.toLowerCase()){
                 case "ipa":
-                    newBeer(newBeerName,beerInput);
                     input = false;
+                    n = new IPA(newBeerName);
+                    Nova.beerInStock.add(n);
                     break;
 
                 case "lager":
-                    newBeer(newBeerName,beerInput);
                     input = false; 
+                    n = new Lager(newBeerName);
+                    Nova.beerInStock.add(n);
                     break;
 
                 case "stout":
-                    newBeer(newBeerName,beerInput);
                     input = false; 
+                    n = new Stout(newBeerName);
+                    Nova.beerInStock.add(n);
                     break;
 
                 case "ale":
-                    newBeer(newBeerName,beerInput);
                     input = false; 
+                    n = new Ale(newBeerName);
+                    Nova.beerInStock.add(n);
                     break;
 
                 case "sour":
-                    newBeer(newBeerName,beerInput);
                     input = false; 
+                    n = new Sour(newBeerName);
+                    Nova.beerInStock.add(n);
                     break;
 
                 case "porter":
-                    newBeer(newBeerName,beerInput);
                     input = false; 
+                    n = new Porter(newBeerName);
+                    Nova.beerInStock.add(n);
                     break;
 
                 default:
@@ -95,7 +75,7 @@ class addNewBeer implements Manager_interface, SysOut{
             }
             
         }
-        return(newBeerName);
+        return("Beer " + newBeerName + " has been added! Good Job brewster!");
     }
 
 }
@@ -120,6 +100,7 @@ class removeBeer implements Manager_interface, SysOut{
             listBeer.add(b); // Adds beer from current inventory
             beerInventory.append(b.name + "\n");
         }
+        String inputRM = "";
         Scanner remove = new Scanner(System.in);
         Boolean input = false;
         while (input){
@@ -129,7 +110,7 @@ class removeBeer implements Manager_interface, SysOut{
                 out(listBeer.get(i).name);
             }
             out("Please enter the name of the beer you wish to remove from here.");
-            String inputRM = remove.nextLine();
+            inputRM = remove.nextLine();
             for(int j = 0; j < listBeer.size();j++){
                 if(listBeer.get(j).toString() == inputRM){
                     beerFound = true;
@@ -152,7 +133,7 @@ class showInventory implements Manager_interface, SysOut{ // Function will show 
     StringBuilder Beers = new StringBuilder();
     public String execute(Brewery Nova){
         for (Beer i: Nova.beerInStock){
-            Beers.append(i.name + " Beer Sold: " + i.BeersSold + " Beer Stock: " + i.stock+ "\n");
+            Beers.append(i.name + " Beer Sold: " + i.BeersSold + " Beer Stock: " + i.beerStockOunces+ "\n");
         }
         return Beers.toString();
     }
@@ -163,22 +144,25 @@ class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer
     Scanner restockObj = new Scanner(System.in);
     public String execute(Brewery Nova){
         out("Which beer would you like to stock? (Please enter the name of the beer as it is on the list above.)");
-        Boolean restocked = true;
+        Boolean restocked = false;
         String returnBeer;
         Boolean loop = true;
         while(loop){
             String beerToStock = restockObj.nextLine();
-            for (Beer j: Nova.beerInStock){
-                if (j.name == beerToStock){
-                    j.stock = j.stock + 200;
+            for (int i = 0; i < Nova.beerInStock.size(); i++){
+                if (Nova.beerInStock.get(i).name == beerToStock){
+                    Nova.beerInStock.get(i).beerStockOunces = Nova.beerInStock.get(i).beerStockOunces + 8000;
+                    restocked = true;
+                    break;
                 }
                 else {
                     restocked = false;
                 }
             }
-            if(restocked == true){
+            if(restocked = true){
                 loop = false;
             }
+            
             else {
                 out("Whoops looks like the beer is not on the list! Type in another beer name.");
             }
@@ -188,7 +172,7 @@ class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer
             returnBeer = "Beer has been stocked!";
         }
         else {
-            returnBeer = "Unable to sock beer.";
+            returnBeer = "Unable to stock beer.";
         }
 
         return returnBeer;
