@@ -20,14 +20,30 @@ interface Manager_interface {
 
 class addNewBeer implements Manager_interface, SysOut{
     void newBeer(String beerName, String b){ //Helper function to create a new beer 
-        Beer n = null;
-        if (b == Enums.BeerType.IPA.toString()) n = new IPA(beerName);
-        if (b == Enums.BeerType.Ale.toString()) n = new Ale(beerName);
-        if (b == Enums.BeerType.Sour.toString()) n = new Sour(beerName);
-        if (b == Enums.BeerType.Stout.toString()) n = new Stout(beerName);
-        if (b == Enums.BeerType.Porter.toString()) n = new Porter(beerName);
-        if (b == Enums.BeerType.Lager.toString()) n = new Lager(beerName);
-        out("You have created " + n.name);
+        if (b == Enums.BeerType.IPA.toString()){
+            Beer n = new IPA(beerName);
+            out("You have created " + n.name);
+        } 
+        else if (b == Enums.BeerType.Ale.toString()) {
+             Beer n = new Ale(beerName);
+             out("You have created " + n.name);
+        }
+        else if (b == Enums.BeerType.Sour.toString()) {
+            Beer n = new Sour(beerName);
+            out("You have created " + n.name);
+        }
+        else if (b == Enums.BeerType.Stout.toString()){
+             Beer n = new Stout(beerName);
+             out("You have created " + n.name);
+        }
+        else if (b == Enums.BeerType.Porter.toString()) {
+            Beer n = new Porter(beerName);
+            out("You have created " + n.name);
+        }
+        else if (b == Enums.BeerType.Lager.toString()) {
+            Beer n = new Lager(beerName);
+            out("You have created " + n.name);
+        }
     } 
 
     public String execute(Brewery Nova){
@@ -36,20 +52,49 @@ class addNewBeer implements Manager_interface, SysOut{
         Scanner myObj1 = new Scanner (System.in);
         out("What would you like to name your beer?");
         String newBeerName = myObj1.nextLine();
-        myObj1.close();
+    
 
         //Need to get the type of beer 
         Scanner myObj2 = new Scanner(System.in);
         while (input){
             out("Please type in one of the following kinds of beer you would like to add.(IPA, Lager, Stout, Ale, Sour, Porter)");
             String beerInput = myObj2.nextLine();
-            if (beerInput.toLowerCase() == "ipa" || beerInput.toLowerCase() == "lager" || beerInput.toLowerCase() == "stout" || beerInput.toLowerCase() == "ale" || beerInput.toLowerCase() == "sour" || beerInput.toLowerCase() == "porter"){
-                newBeer(newBeerName,beerInput);
-                input = false;
-            }
-        }
-        myObj2.close();
+            switch(beerInput.toLowerCase()){
+                case "ipa":
+                    newBeer(newBeerName,beerInput);
+                    input = false;
+                    break;
 
+                case "lager":
+                    newBeer(newBeerName,beerInput);
+                    input = false; 
+                    break;
+
+                case "stout":
+                    newBeer(newBeerName,beerInput);
+                    input = false; 
+                    break;
+
+                case "ale":
+                    newBeer(newBeerName,beerInput);
+                    input = false; 
+                    break;
+
+                case "sour":
+                    newBeer(newBeerName,beerInput);
+                    input = false; 
+                    break;
+
+                case "porter":
+                    newBeer(newBeerName,beerInput);
+                    input = false; 
+                    break;
+
+                default:
+                    out("This beer type does not match any of the options. Please enter it again.");
+            }
+            
+        }
         return(newBeerName);
     }
 
@@ -135,6 +180,7 @@ class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer
                 }
                 else {
                     out("Whoops looks like the beer is not on the list!");
+                    
                 }
             }
 
@@ -192,7 +238,8 @@ class Menu implements SysOut{
                     Scanner myInputB = new Scanner(System.in);
                     while(inputB){
                         showInventory BeerInventory = new showInventory();
-                        out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory + "\n"); //Shows the beer name, beers sold, and beer in stock
+
+                        out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory.execute(Nova) + "\n"); //Shows the beer name, beers sold, and beer in stock
                         out("Enter the number of the option you wish to choose.");
                         out("1: Restock Beer.");
                         out("2: Quit.");
@@ -202,7 +249,8 @@ class Menu implements SysOut{
                             case "1":
                                 //Gives manager option to restock beer.
                                 restockBeer beer = new restockBeer();
-                                out("Result:" + beer);
+                                out("Result:" + beer.execute(Nova));
+                                inputB = false;
                                 break;
 
                             case "2":
@@ -221,12 +269,13 @@ class Menu implements SysOut{
                         out("Enter the number of the option you wish to choose.");
                         out("1: Add a new beer.");
                         out("2: Remove a beer.");
+                        out("3: To Quit.");
                         String option = myInputC.nextLine();
 
                         switch(option){
                             case "1": //Option to add beer
                                 addNewBeer add = new addNewBeer();
-                                out("You have successfully created new brew " + add + ".");
+                                out("The beer " + add.execute(Nova) + " has been added!");
                                 break;
 
                             case "2": //Option to remove beer 
