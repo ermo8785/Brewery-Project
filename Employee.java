@@ -58,14 +58,47 @@ class Bartender extends Employee{
         super();
         type = Enums.EmployeeType.Bartender;
         name = namer.getNext();
+        pay = 60.00;
     }
     Beer serveBeer(Customer c, ArrayList<Beer> beerInStock){
         double saleChance = .7;
         if(c.type == Enums.CustomerType.WantsOne) saleChance = .8;
         if(c.type == Enums.CustomerType.JustLooking) saleChance = .2;
 
-        //ArrayList<Beer> desiredList = Beer.getBeerByType(beerInStock, c.preference);
-        Beer b = beerInStock.get(0);
+        ArrayList<Beer> desiredList = Beer.getBeerByType(beerInStock, c.preference);
+        Beer b;
+
+        b = getMostExpensiveBeer(desiredList);
+
+        if(b == null){
+            saleChance -= .2;
+            b = getMostExpensiveBeer(beerInStock);
+        }
+
+        else{
+            double chance = Utility.rnd();
+            if (chance <= saleChance){
+                if (chance <= .25){ // buyer got two of this beer
+                    Double sellPrice = b.price;
+                    sellPrice += b.price;
+                }
+
+                if (chance <= .08){ // buyer got four beers, round on him!
+                    Double sellPrice = b.price; 
+                    sellPrice += b.price * 4;
+                }
+                
+                if (chance <= .02){ // ok, buyer had a big party today. 6 beers
+                    Double sellPrice = b.price;
+                    sellPrice += b.price * 6;
+                }
+            }
+            else{ // no sale for this customer
+                out("Customer " + b.name + " decided not to get any beers today.");
+                return null;
+            }
+        }
+        //Beer b = beerInStock.get(0);
 
         if(c.preference == Enums.BeerType.IPA) saleChance += .1;
         if(c.preference == Enums.BeerType.Stout) saleChance += .1;
@@ -84,6 +117,23 @@ class Bartender extends Employee{
             out("Customer " + c.name + " decided not to buy a drink.");
             return null;
         }
-    }
 
+    }
+    
+    Beer getMostExpensiveBeer(ArrayList<Beer> bList)
+    {
+        double highPrice = 0;
+        int selected = -1;
+        for (int index = 0; index< bList.size(); index++) 
+        {
+            Beer b = bList.get(index);
+            if (b.price>highPrice) 
+            {
+                selected = index;
+                highPrice = b.price;
+            }
+        }
+        if (selected == -1) return null;
+        else return bList.get(selected);
+    }
 }

@@ -1407,6 +1407,27 @@ org.eclipse.jdt.core.compiler.InvalidInputException: Invalid_Char_In_String
 2023.04.21 10:41:47 INFO  time: code lens generation in 2.14s
 2023.04.21 10:41:49 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Namer.java
 2023.04.21 10:41:51 INFO  time: code lens generation in 1.47s
+<<<<<<< HEAD
+2023.04.28 13:09:20 INFO  Started: Metals version 0.11.12 in workspace '/Users/raf/Documents/OOAD/Brewery-Project' for client Visual Studio Code 1.77.1.
+Apr 28, 2023 1:09:20 PM org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+INFO: Flyway Community Edition 9.16.3 by Redgate
+Apr 28, 2023 1:09:20 PM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: See release notes here: https://rd.gt/416ObMi
+Apr 28, 2023 1:09:20 PM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: 
+Apr 28, 2023 1:09:20 PM org.flywaydb.core.internal.database.base.BaseDatabaseType createDatabase
+INFO: Database: jdbc:h2:file:/Users/raf/Documents/OOAD/Brewery-Project/.metals/metals (H2 2.1)
+Apr 28, 2023 1:09:20 PM org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 4 migrations (execution time 00:00.020s)
+Apr 28, 2023 1:09:20 PM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema "PUBLIC": 4
+Apr 28, 2023 1:09:20 PM org.flywaydb.core.internal.command.DbMigrate logSummary
+INFO: Schema "PUBLIC" is up to date. No migration necessary.
+2023.04.28 13:09:20 INFO  time: initialize in 0.68s
+2023.04.28 13:09:22 WARN  Build server is not auto-connectable.
+2023.04.28 13:09:22 WARN  no build tool detected in workspace '/Users/raf/Documents/OOAD/Brewery-Project'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.04.28 13:09:22 WARN  no build target for: /Users/raf/Documents/OOAD/Brewery-Project/Manager.java
+=======
 2023.04.21 13:28:05 WARN  Cannot tokenize Java file file:///Users/ericsimac/OOAD/Brewery-Project/Manager.java
 org.eclipse.jdt.core.compiler.InvalidInputException: Invalid_Char_In_String
 	at org.eclipse.jdt.internal.core.util.PublicScanner.getNextToken(PublicScanner.java:1564)
@@ -1876,6 +1897,9 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for 
 2023.04.21 14:15:07 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
 2023.04.21 14:15:49 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
 2023.04.21 14:17:23 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+<<<<<<< HEAD
+>>>>>>> f9aa6f51ff274445cb7cfa17d528a9a767752163
+=======
 Apr 21, 2023 3:21:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
 WARNING: Unmatched cancel notification for request id 749
 Apr 21, 2023 3:21:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
@@ -3317,6 +3341,7 @@ INFO: Unsupported notification method: $/setTrace
 2023.04.28 13:14:02 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/BeerFactory.java
 2023.04.28 13:14:12 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/BeerFactory.java
 2023.04.28 13:14:31 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+<<<<<<< HEAD
 2023.04.28 13:25:45 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
 2023.04.28 13:27:14 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
 2023.04.28 13:27:33 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
@@ -4601,3 +4626,6 @@ INFO: Unsupported notification method: $/setTrace
 2023.04.28 14:58:10 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Beer.java
 2023.04.28 14:59:58 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
 2023.04.28 15:00:00 INFO  time: code lens generation in 1.6s
+=======
+>>>>>>> b9f7587258efda727c736b69cc79f94d05446ee5
+>>>>>>> 583a9b87d48ed8d5651ccf27d51b1129792c8f09
