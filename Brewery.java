@@ -60,24 +60,91 @@ public class Brewery implements SysOut {
         return customers;
     }
     void hireEmployees(){
+        final int employeeNum = 3;
+        for (Enums.EmployeeType t : Enums.EmployeeType.values()){
+            int typeInList = Employee.howManyByType(employeeList, t);
+            int need = employeeNum - typeInList;
 
+            for (int i = 1; i <= need; i++){
+                addEmployee(t);
+            }
+        }
     }
     void addEmployee(Enums.EmployeeType t){
-
+        Employee newBartender = null;
+        if (t == Enums.EmployeeType.Bartender) newBartender = new Bartender();
+        out("Hired a new " + newBartender.type + " named" + newBartender.name);
+        employeeList.add(newBartender);
     }
-    void restockBeer(){
+    /*void restockBeer(){
+        final int ouncesNeeded = 8000;
 
-    }
+        for (int i = 0; i < beerInStock.size(); i++){
+            if (beerInStock.get(i).beerStockOunces != ouncesNeeded){
+                int beerStockOunces = beerInStock.get(i).beerStockOunces;
+                int need = ouncesNeeded - beerStockOunces;
+
+                beerStockOunces += need;
+            }
+        }
+    }*/
 
     void payEmployees(){
-
+        for (Employee e : employeeList){
+            moneyOut(e.pay);
+            e.daysWorked++;
+            e.payEarned += e.pay;
+        }
     }
 
     void checkForQuitters(){
+        ArrayList <Employee> bartender = Employee.getEmployeesByType(employeeList, Enums.EmployeeType.Bartender);
+        double bartenderQuit = Math.random(); 
 
+        if(bartenderQuit <= 0.05){
+            int randomIndex = Utility.rndFromRange(0, 2);
+            Bartender bartenderName = (Bartender) bartender.get(randomIndex);
+            departedEmployees.add(bartenderName);
+
+            for (int i = 0; i < employeeList.size(); i++){
+                if (employeeList.get(i) == bartenderName){
+                    employeeList.remove(i);
+                }
+            }
+            out("Bartender " + bartenderName.name + " has quit Nebula Brewing Co.");
+        }
     }
-    void checkForMisbehavior(){
-        
+    void checkForMisbehavior(Enums.DayOfWeek day){
+        ArrayList <Employee> bartender = Employee.getEmployeesByType(employeeList, Enums.EmployeeType.Bartender);
+        double bartenderMisbehaved = Math.random();
+
+        // if it's happy hour all day, there's a higher chance that an employee may misbehave
+        if (day == Enums.DayOfWeek.Mon || day == Enums.DayOfWeek.Wed){
+            if (bartenderMisbehaved <= 0.60){
+                int randomIndex = Utility.rndFromRange(0,2);
+                Bartender misbehavingBartender = (Bartender) bartender.get(randomIndex);
+                departedEmployees.add(misbehavingBartender);
+    
+                for (int i = 0; i < employeeList.size(); i++){
+                    if (employeeList.get(i) == misbehavingBartender){
+                        employeeList.get(i).strikes++;
+                    }
+                }
+            }
+        }
+        else{
+            if (bartenderMisbehaved <= 0.35){
+                int randomIndex = Utility.rndFromRange(0,2);
+                Bartender misbehavingBartender = (Bartender) bartender.get(randomIndex);
+                departedEmployees.add(misbehavingBartender);
+    
+                for (int i = 0; i < employeeList.size(); i++){
+                    if (employeeList.get(i) == misbehavingBartender){
+                        employeeList.get(i).strikes++;
+                    }
+                }
+            }
+        }
     }
 
     void happyHourAllDay(Enums.DayOfWeek day){
@@ -88,7 +155,7 @@ public class Brewery implements SysOut {
         out("Nebula Brewing Co. is opening...");
 
         hireEmployees();
-        restockBeer();
+        //restockBeer();
 
         out("The bartenders are serving customers...");
         
@@ -108,9 +175,12 @@ public class Brewery implements SysOut {
 
                 beerInStock.add(beerSold);
                 moneyOut(beerSold.cost);
+
+                
             }
         }
     }
+
     void reportOut(Enums.DayOfWeek day){
         
     }

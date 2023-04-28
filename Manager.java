@@ -120,8 +120,8 @@ class removeBeer implements Manager_interface, SysOut{
             listBeer.add(b); // Adds beer from current inventory
             beerInventory.append(b.name + "\n");
         }
-        Boolean input = false;
         Scanner remove = new Scanner(System.in);
+        Boolean input = false;
         while (input){
             Boolean beerFound = false;
             out("Here are the beers we currently have in inventory!");
@@ -133,7 +133,7 @@ class removeBeer implements Manager_interface, SysOut{
             for(int j = 0; j < listBeer.size();j++){
                 if(listBeer.get(j).toString() == inputRM){
                     beerFound = true;
-                    listBeer.remove(j);
+                    Nova.beerInStock.remove(j);
                 }
             }
             if (beerFound){
@@ -142,8 +142,7 @@ class removeBeer implements Manager_interface, SysOut{
             else out("Beer was not found make sure the beer is in the current inventory.");
 
         }
-        remove.close();
-        return remove.toString();
+        return inputRM;
     }
 }
 
@@ -283,7 +282,7 @@ class Menu implements SysOut{
 
                             case "2": //Option to remove beer 
                                 removeBeer remove = new removeBeer();
-                                out("The beer " + remove + " has been removed.");
+                                out("You have removed " + remove.execute(Nova) + "from inventory!");
                                 break;
 
                             case "3":

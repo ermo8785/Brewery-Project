@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class Beer {
     String name;
     Double cost;
@@ -8,10 +10,19 @@ public abstract class Beer {
     int beerStockOunces;
 
     // Will need beer in stock later on
-    int stock;
+    //int stock;
 
     public Beer(){
 
+    }
+
+    static ArrayList<Beer> getBeerByType(ArrayList<Beer> beerList, Enums.BeerType type){
+        ArrayList<Beer> subclassInstances = new ArrayList<>();
+        
+        for (Beer b : beerList){
+            if(b.type == type) subclassInstances.add(b);
+        }
+        return subclassInstances;
     }
 
 }
