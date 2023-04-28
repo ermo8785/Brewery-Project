@@ -77,7 +77,7 @@ public class Brewery implements SysOut {
 
     }
     void checkForMisbehavior(){
-
+        
     }
 
     void happyHourAllDay(Enums.DayOfWeek day){

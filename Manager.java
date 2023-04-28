@@ -153,9 +153,8 @@ class showInventory implements Manager_interface, SysOut{ // Function will show 
     StringBuilder Beers = new StringBuilder();
     public String execute(Brewery Nova){
         for (Beer i: Nova.beerInStock){
-            Beers.append(i.name + " " + i.BeersSold + " " + i.stock+ "\n");
+            Beers.append(i.name + " Beer Sold: " + i.BeersSold + " Beer Stock: " + i.stock+ "\n");
         }
-
         return Beers.toString();
     }
 
@@ -165,34 +164,38 @@ class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer
     Scanner restockObj = new Scanner(System.in);
     public String execute(Brewery Nova){
         out("Which beer would you like to stock? (Please enter the name of the beer as it is on the list above.)");
-        String beerToStock = restockObj.nextLine();
-        Boolean restocked = false;
+        Boolean restocked = true;
         String returnBeer;
         Boolean loop = true;
         while(loop){
-            for (Beer i: Nova.beerInStock){
-                if (i.name == beerToStock){
-                    i.stock = i.stock + 200;
-                    restocked = true;
-                }
-                if(restocked){
-                    loop = false;
+            String beerToStock = restockObj.nextLine();
+            for (Beer j: Nova.beerInStock){
+                if (j.name == beerToStock){
+                    j.stock = j.stock + 200;
                 }
                 else {
-                    out("Whoops looks like the beer is not on the list!");
-                    
+                    restocked = false;
                 }
             }
-
+            if(restocked == true){
+                loop = false;
+            }
+            else {
+                out("Whoops looks like the beer is not on the list! Type in another beer name.");
+            }
         }
         if (restocked){
             loop = false;
             returnBeer = "Beer has been stocked!";
         }
-        else returnBeer = "Unable to sock beer.";
-        return (returnBeer);
-    }
+        else {
+            returnBeer = "Unable to sock beer.";
+        }
+
+        return returnBeer;
+    } 
 }
+
 /* 
 class hireEmployee implements Manager_interface, SysOut{
     public String execute(Brewery Nova){
@@ -296,3 +299,5 @@ class Menu implements SysOut{
         }
     }
 }
+
+

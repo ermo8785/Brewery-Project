@@ -5,6 +5,7 @@ public abstract class Beer {
     Double alcVol;
     int BeersSold;
     Enums.BeerType type; 
+    int beerStockOunces;
 
     // Will need beer in stock later on
     int stock;
@@ -25,6 +26,7 @@ class IPA extends Beer {
         price = 7.00;
         alcVol = 6.00; 
         BeersSold = 0;
+        
     }
     IPA(String beerName) {
         super();
@@ -34,6 +36,7 @@ class IPA extends Beer {
         price = 7.00;
         alcVol = 6.00; 
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
 }
 class Porter extends Beer {
@@ -46,6 +49,7 @@ class Porter extends Beer {
         price = 8.00;
         alcVol = 7.1; 
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
     Porter(String beerName) {
         super();
@@ -55,6 +59,7 @@ class Porter extends Beer {
         price = 8.00;
         alcVol = 7.1; 
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
 }
 class Sour extends Beer {
@@ -67,6 +72,7 @@ class Sour extends Beer {
         price = 5.00;
         alcVol = 4.5; 
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
     Sour(String beerName) {
         super();
@@ -76,6 +82,7 @@ class Sour extends Beer {
         price = 5.00;
         alcVol = 4.5; 
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
 }
 class Stout extends Beer {
@@ -88,6 +95,7 @@ class Stout extends Beer {
         price = 9.00;
         alcVol = 9.1; 
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
     Stout(String beerName) {
         super();
@@ -97,6 +105,7 @@ class Stout extends Beer {
         price = 9.00;
         alcVol = 9.1; 
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
 }
 class Ale extends Beer {
@@ -108,6 +117,7 @@ class Ale extends Beer {
         price = 7.00;
         alcVol = 6.0;
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
     Ale(String beerName) {
         super();
@@ -117,6 +127,7 @@ class Ale extends Beer {
         price = 7.00;
         alcVol = 6.0;
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
 }
 class Lager extends Beer {
@@ -128,6 +139,7 @@ class Lager extends Beer {
         price = 6.50;
         alcVol = 6.00; 
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
     Lager(String beerName) {
         super();
@@ -137,5 +149,6 @@ class Lager extends Beer {
         price = 6.50;
         alcVol = 6.00; 
         BeersSold = 0;
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
 }
