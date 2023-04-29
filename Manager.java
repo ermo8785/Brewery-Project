@@ -4,7 +4,7 @@ import java.util.ArrayList;
 // Command Pattern for Interface
 
 public class Manager implements SysOut{
-    void FireEmployee(String employee){
+    void fireEmployee(String employee){
 
     }
 
@@ -16,6 +16,71 @@ public class Manager implements SysOut{
 
 interface Manager_interface {
     String execute(Brewery Nova);
+}
+class giveRaise implements Manager_interface, SysOut{
+    public String execute (Brewery Nebula){
+        String chosenEmployee = "";
+        Scanner choice = new Scanner(System.in);
+        Boolean input = true;
+        String returnStr = "";
+
+        while(input){
+            Boolean employeeFound = false;
+            out("Here are the employees that are currently working here.");
+            for (int i = 0; i < Nebula.employeeList.size(); i++){
+                out(Nebula.employeeList.get(i).name);
+            }
+
+            out("Please enter the name of the employee you wish to give a raise to.");
+            chosenEmployee = choice.nextLine();
+
+            for (int j = 0; j < Nebula.employeeList.size(); j++){
+                if (Nebula.employeeList.get(j).name.equalsIgnoreCase(chosenEmployee)){
+                    employeeFound = true;
+                    Nebula.employeeList.get(j).pay += 5;
+                    returnStr = "Employee, " + chosenEmployee + ", has gotten a raise.";
+                }
+            }
+            if(employeeFound){
+                input = false;
+            }
+            else out("This person does not work at Nebula Brewing Co.");
+        }
+        return returnStr;
+    }
+}
+
+class fireEmployee implements Manager_interface, SysOut{
+    public String execute (Brewery Nebula){
+        String inputRemove = "";
+        Scanner remove = new Scanner(System.in);
+        Boolean input = true;
+        String returnStr = "";
+
+        while(input){
+            Boolean employeeFound = false;
+            out("Here are the employees that are currently working here.");
+            for (int i = 0; i < Nebula.employeeList.size(); i++){
+                out(Nebula.employeeList.get(i).name);
+            }
+
+            out("Please enter the name of the employee you wish to fire.");
+            inputRemove = remove.nextLine();
+
+            for (int j = 0; j < Nebula.employeeList.size(); j++){
+                if (Nebula.employeeList.get(j).name.equalsIgnoreCase(inputRemove)){
+                    employeeFound = true;
+                    Nebula.employeeList.remove(j);
+                    returnStr = "Employee, " + inputRemove + ", has been fired.";
+                }
+            }
+            if(employeeFound){
+                input = false;
+            }
+            else out("This person does not work at Nebula Brewing Co.");
+        }
+        return returnStr;
+    }
 }
 
 class addNewBeer implements Manager_interface, SysOut{
@@ -83,8 +148,8 @@ class addNewBeer implements Manager_interface, SysOut{
     
 
 class removeBeer implements Manager_interface, SysOut{
-    public ArrayList<Beer> listBeer = new ArrayList<>();
-    StringBuilder beerInventory = new StringBuilder();
+    // public ArrayList<Beer> listBeer = new ArrayList<>();
+    // StringBuilder beerInventory = new StringBuilder();
     /*void RemoveBeer(String beer, ArrayList<String> coldBeers) {
         for (int q = 0; q < coldBeers.size(); q++){
             if (coldBeers.get(q) == beer){
@@ -243,11 +308,37 @@ class Menu implements SysOut{
 
                     while(inputA){
                         showEmployeeStats employeeStats = new showEmployeeStats();
-                        out("Here are your employees' stats for the day.");
+
+                        out("Here are your employees' stats for the day. \n" + employeeStats.execute(Nova) + "\n");
                         out("Enter the number of the option you wish to choose.");
                         out("1: Give employee a raise.");
                         out("2: Fire an employee.");
                         out("3: Quit Employee stats menu");
+
+                        String option = myInputA.nextLine();
+
+                        switch(option){
+                            case "1":
+                                // Give choice employee a raise
+                                giveRaise giveEmployeeRaise = new giveRaise();
+                                out("Result: " + giveEmployeeRaise.execute(Nova));
+                                inputA = false;
+                                break;
+                            
+                            case "2":
+                                // Fire an employee
+                                fireEmployee fireEmployee = new fireEmployee();
+                                out("Result: " + fireEmployee.execute(Nova));
+                                break;
+                            
+                            case "3":
+                                // quit stats menu
+                                inputA = false;
+                                break;
+                            default:
+                                out("Invalid input. Try again.");
+                                break;
+                        }
                     }
                     break;
 
