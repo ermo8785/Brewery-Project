@@ -176,7 +176,6 @@ public class Brewery implements SysOut {
                 beerInStock.add(beerSold);
                 moneyOut(beerSold.cost);
 
-                
             }
         }
     }
