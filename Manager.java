@@ -80,7 +80,6 @@ class addNewBeer implements Manager_interface, SysOut{
 
 }
 
-    
 
 class removeBeer implements Manager_interface, SysOut{
     public ArrayList<Beer> listBeer = new ArrayList<>();
@@ -102,7 +101,7 @@ class removeBeer implements Manager_interface, SysOut{
         }
         String inputRM = "";
         Scanner remove = new Scanner(System.in);
-        Boolean input = false;
+        Boolean input = true;
         while (input){
             Boolean beerFound = false;
             out("Here are the beers we currently have in inventory!");
@@ -111,8 +110,8 @@ class removeBeer implements Manager_interface, SysOut{
             }
             out("Please enter the name of the beer you wish to remove from here.");
             inputRM = remove.nextLine();
-            for(int j = 0; j < listBeer.size();j++){
-                if(listBeer.get(j).toString() == inputRM){
+            for(int j = 0; j < Nova.beerInStock.size();j++){
+                if(Nova.beerInStock.get(j).name == inputRM){
                     beerFound = true;
                     Nova.beerInStock.remove(j);
                 }
