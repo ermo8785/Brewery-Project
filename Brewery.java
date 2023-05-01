@@ -178,6 +178,10 @@ public class Brewery implements SysOut {
 
             }
         }
+
+        checkForMisbehavior(day);
+        checkForQuitters();
+        payEmployees();
     }
 
     void reportOut(Enums.DayOfWeek day){

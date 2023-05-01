@@ -1,0 +1,61 @@
+2023.05.01 13:14:21 INFO  Started: Metals version 0.11.12 in workspace '/Users/ericsimac/OOAD/Brewery-Project' for client Visual Studio Code 1.77.3.
+May 01, 2023 1:14:21 PM org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+INFO: Flyway Community Edition 9.16.3 by Redgate
+May 01, 2023 1:14:21 PM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: See release notes here: https://rd.gt/416ObMi
+May 01, 2023 1:14:21 PM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: 
+May 01, 2023 1:14:25 PM org.flywaydb.core.internal.database.base.BaseDatabaseType createDatabase
+INFO: Database: jdbc:h2:file:/Users/ericsimac/OOAD/Brewery-Project/.metals/metals (H2 2.1)
+May 01, 2023 1:14:25 PM org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 4 migrations (execution time 00:00.034s)
+May 01, 2023 1:14:25 PM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema "PUBLIC": 4
+May 01, 2023 1:14:25 PM org.flywaydb.core.internal.command.DbMigrate logSummary
+INFO: Schema "PUBLIC" is up to date. No migration necessary.
+2023.05.01 13:14:25 INFO  time: initialize in 4.33s
+2023.05.01 13:14:29 WARN  Build server is not auto-connectable.
+2023.05.01 13:14:29 WARN  no build tool detected in workspace '/Users/ericsimac/OOAD/Brewery-Project'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.05.01 13:14:29 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+2023.05.01 13:14:29 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Main.java
+May 01, 2023 1:14:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 5
+2023.05.01 13:14:32 INFO  time: code lens generation in 2.91s
+2023.05.01 13:14:42 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Main.java
+2023.05.01 13:48:17 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Simulator.java
+2023.05.01 13:49:00 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Simulator.java
+2023.05.01 13:49:16 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Simulator.java
+2023.05.01 13:49:25 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Simulator.java
+May 01, 2023 1:49:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 139
+2023.05.01 13:50:23 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Simulator.java
+2023.05.01 13:50:48 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Simulator.java
+2023.05.01 13:51:09 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Simulator.java
+2023.05.01 13:51:31 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+2023.05.01 13:55:33 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Customer.java
+2023.05.01 13:55:36 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Employee.java
+2023.05.01 13:55:52 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Enums.java
+2023.05.01 13:55:54 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Brewery.java
+2023.05.01 13:55:56 INFO  time: code lens generation in 1.11s
+2023.05.01 14:18:46 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/BeerFactory.java
+2023.05.01 14:18:47 INFO  time: code lens generation in 1.01s
+2023.05.01 14:18:49 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Beer.java
+2023.05.01 14:18:52 INFO  time: code lens generation in 1.36s
+2023.05.01 14:18:52 INFO  time: code lens generation in 2.11s
+2023.05.01 14:18:56 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/SysOut.java
+May 01, 2023 2:21:15 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 632
+2023.05.01 14:21:19 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Brewery.java
+2023.05.01 14:21:42 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Brewery.java
+2023.05.01 14:23:40 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Employee.java
+2023.05.01 14:27:01 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Employee.java
+2023.05.01 14:27:42 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Employee.java
+2023.05.01 14:35:49 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+2023.05.01 14:36:07 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+2023.05.01 14:36:16 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+May 01, 2023 2:36:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1585
+2023.05.01 14:36:41 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+2023.05.01 14:36:46 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+May 01, 2023 2:49:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1733

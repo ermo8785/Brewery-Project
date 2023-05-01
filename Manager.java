@@ -277,20 +277,19 @@ class Menu implements SysOut{
         while(input){ //Display menu for different options as manager
             out("Please enter one of the follow options (a,b,c,q) to :");
             out("a: Checkout employees");
-            out("b: Check beer and see if we need more of a specific kind.");
-            out("c: Check to see if beer is selling and/or create a new beer.");
-            out("q: quit");
+            out("b: Check the current beer inventory and how beers are selling.");
+            out("c: Create a new beer to add to the menu or remove a beer from the menu.");
+            out("q: Continue to Next Day.");
             String breweryInput = myObj.nextLine();
 
             switch(breweryInput){
                 default:
-                    out("You have no selcted a valid choice");
+                    out("You have not selcted a valid choice");
                     ManagerMenu(Nova, ManagerName);
                     break;
 
                 case "q":
                     input = false;
-                    myObj.close();
                     break;
 
                 case "a":
@@ -305,7 +304,7 @@ class Menu implements SysOut{
                         out("Enter the number of the option you wish to choose.");
                         out("1: Give employee a raise.");
                         out("2: Fire an employee.");
-                        out("3: Quit Employee stats menu");
+                        out("3: GO BACK.");
 
                         String option = myInputA.nextLine();
 
@@ -344,7 +343,7 @@ class Menu implements SysOut{
                         out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory.execute(Nova) + "\n"); //Shows the beer name, beers sold, and beer in stock
                         out("Enter the number of the option you wish to choose.");
                         out("1: Restock Beer.");
-                        out("2: Quit.");
+                        out("2: GO BACK.");
                         String option = myInputB.nextLine();
 
                         switch(option){
@@ -371,7 +370,7 @@ class Menu implements SysOut{
                         out("Enter the number of the option you wish to choose.");
                         out("1: Add a new beer.");
                         out("2: Remove a beer.");
-                        out("3: To Quit.");
+                        out("3: GO BACK.");
                         String option = myInputC.nextLine();
 
                         switch(option){

@@ -100,7 +100,7 @@ class Bartender extends Employee{
         }
         //Beer b = beerInStock.get(0);
 
-        if(c.preference == Enums.BeerType.IPA) saleChance += .1;
+        if(c.preference == Enums.BeerType.IPA) saleChance += .1; // TODO Find a way to have customer buy a specific kind of beer.
         if(c.preference == Enums.BeerType.Stout) saleChance += .1;
         if(c.preference == Enums.BeerType.Lager) saleChance += .1;
         if(c.preference == Enums.BeerType.Sour) saleChance += .1;
