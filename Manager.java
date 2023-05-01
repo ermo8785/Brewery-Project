@@ -147,51 +147,44 @@ class addNewBeer implements Manager_interface, SysOut{
 
 
 class removeBeer implements Manager_interface, SysOut{
-    // public ArrayList<Beer> listBeer = new ArrayList<>();
-    // StringBuilder beerInventory = new StringBuilder();
-    /*void RemoveBeer(String beer, ArrayList<String> coldBeers) {
-        for (int q = 0; q < coldBeers.size(); q++){
-            if (coldBeers.get(q) == beer){
-                String msgBeer = coldBeers.get(q);
-                coldBeers.remove(q);
-                out("The beer " + msgBeer + " has been removed!");
-            }
-        }
-    }*/
+        public String execute(Brewery Nova){
+            /*for(Beer b: Nova.beerInStock){
+                listBeer.add(b); // Adds beer from current inventory
+                beerInventory.append(b.name + "\n");
+            }*/
+            String inputRM = "";
+            Scanner remove = new Scanner(System.in);
+            Boolean input = true;
 
-    public String execute(Brewery Nova){
-        /*for(Beer b: Nova.beerInStock){
-            listBeer.add(b); // Adds beer from current inventory
-            beerInventory.append(b.name + "\n");
-        }*/
-        String inputRM = "";
-        Scanner remove = new Scanner(System.in);
-        Boolean input = true;
-        String returnStr = "";
-        while (input){
-            Boolean beerFound = false;
-            out("Here are the beers we currently have in inventory!");
-            for (int i = 0; i < Nova.beerInStock.size(); i++){
-                out(Nova.beerInStock.get(i).name);
-            }
-            out("Please enter the name of the beer you wish to remove from here.");
-            inputRM = remove.nextLine();
-            for(int j = 0; j < Nova.beerInStock.size();j++){
-                if(Nova.beerInStock.get(j).name.equalsIgnoreCase(inputRM)){
-                    beerFound = true;
-                    Nova.beerInStock.remove(j);
-                    returnStr = "The beer selected, " + inputRM + ", has been removed from the menu.";
+            String returnStr = "";
+
+            while (input){
+                Boolean beerFound = false;
+                out("Here are the beers we currently have in inventory!");
+                for (int i = 0; i < Nova.beerInStock.size(); i++){
+                    out(Nova.beerInStock.get(i).name);
                 }
-            }
-            if (beerFound){
-                input = false;
-            }
-            else out("Beer was not found make sure the beer is in the current inventory.");
+                out("Please enter the name of the beer you wish to remove from here.");
+                inputRM = remove.nextLine();
+                for(int j = 0; j < Nova.beerInStock.size();j++){
+                    if(Nova.beerInStock.get(j).name.equalsIgnoreCase(inputRM)){
+                        beerFound = true;
+                        Nova.beerInStock.remove(j);
+                        returnStr = "The beer selected, " + inputRM + ", has been removed from the menu.";
+                    }
+                }
+                if (beerFound){
+                    input = false;
+                }
+                else out("Beer was not found make sure the beer is in the current inventory.");
 
+            }
+            return returnStr;
         }
-        return returnStr;
     }
-}
+
+
+
 
 class showInventory implements Manager_interface, SysOut{ // Function will show the beer along with how many of these beers have sold 
     public ArrayList<Beer> beerInventory = new ArrayList<>();
@@ -398,12 +391,11 @@ class Menu implements SysOut{
 
                         }
                     }
-                    break;
-                    
+                    break;    
+                }
             }
 
         }
     }
-}
 
 
