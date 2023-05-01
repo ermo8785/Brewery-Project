@@ -167,10 +167,7 @@ class removeBeer implements Manager_interface, SysOut{
         String inputRM = "";
         Scanner remove = new Scanner(System.in);
         Boolean input = true;
-<<<<<<< HEAD
-=======
         String returnStr = "";
->>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
         while (input){
             Boolean beerFound = false;
             out("Here are the beers we currently have in inventory!");
@@ -180,11 +177,7 @@ class removeBeer implements Manager_interface, SysOut{
             out("Please enter the name of the beer you wish to remove from here.");
             inputRM = remove.nextLine();
             for(int j = 0; j < Nova.beerInStock.size();j++){
-<<<<<<< HEAD
-                if(Nova.beerInStock.get(j).name == inputRM){
-=======
                 if(Nova.beerInStock.get(j).name.equalsIgnoreCase(inputRM)){
->>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
                     beerFound = true;
                     Nova.beerInStock.remove(j);
                     returnStr = "The beer selected, " + inputRM + ", has been removed from the menu.";
