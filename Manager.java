@@ -15,7 +15,7 @@ public class Manager implements SysOut{
 }
 
 interface Manager_interface {
-    String execute(Brewery Nova);
+    String execute(Brewery Nebula);
 }
 class giveRaise implements Manager_interface, SysOut{
     public String execute (Brewery Nebula){
@@ -84,7 +84,7 @@ class fireEmployee implements Manager_interface, SysOut{
 }
 
 class addNewBeer implements Manager_interface, SysOut{
-    public String execute(Brewery Nova){
+    public String execute(Brewery Nebula){
         Boolean input = true;
         //Takes in the name of the beer which is an input made by the manager/user
         Scanner myObj1 = new Scanner (System.in);
@@ -102,37 +102,37 @@ class addNewBeer implements Manager_interface, SysOut{
                 case "ipa":
                     input = false;
                     n = new IPA(newBeerName);
-                    Nova.beerInStock.add(n);
+                    Nebula.beerInStock.add(n);
                     break;
 
                 case "lager":
                     input = false; 
                     n = new Lager(newBeerName);
-                    Nova.beerInStock.add(n);
+                    Nebula.beerInStock.add(n);
                     break;
 
                 case "stout":
                     input = false; 
                     n = new Stout(newBeerName);
-                    Nova.beerInStock.add(n);
+                    Nebula.beerInStock.add(n);
                     break;
 
                 case "ale":
                     input = false; 
                     n = new Ale(newBeerName);
-                    Nova.beerInStock.add(n);
+                    Nebula.beerInStock.add(n);
                     break;
 
                 case "sour":
                     input = false; 
                     n = new Sour(newBeerName);
-                    Nova.beerInStock.add(n);
+                    Nebula.beerInStock.add(n);
                     break;
 
                 case "porter":
                     input = false; 
                     n = new Porter(newBeerName);
-                    Nova.beerInStock.add(n);
+                    Nebula.beerInStock.add(n);
                     break;
 
                 default:
@@ -147,8 +147,8 @@ class addNewBeer implements Manager_interface, SysOut{
 
 
 class removeBeer implements Manager_interface, SysOut{
-        public String execute(Brewery Nova){
-            /*for(Beer b: Nova.beerInStock){
+        public String execute(Brewery Nebula){
+            /*for(Beer b: Nebula.beerInStock){
                 listBeer.add(b); // Adds beer from current inventory
                 beerInventory.append(b.name + "\n");
             }*/
@@ -161,15 +161,15 @@ class removeBeer implements Manager_interface, SysOut{
             while (input){
                 Boolean beerFound = false;
                 out("Here are the beers we currently have in inventory!");
-                for (int i = 0; i < Nova.beerInStock.size(); i++){
-                    out(Nova.beerInStock.get(i).name);
+                for (int i = 0; i < Nebula.beerInStock.size(); i++){
+                    out(Nebula.beerInStock.get(i).name);
                 }
                 out("Please enter the name of the beer you wish to remove from here.");
                 inputRM = remove.nextLine();
-                for(int j = 0; j < Nova.beerInStock.size();j++){
-                    if(Nova.beerInStock.get(j).name.equalsIgnoreCase(inputRM)){
+                for(int j = 0; j < Nebula.beerInStock.size();j++){
+                    if(Nebula.beerInStock.get(j).name.equalsIgnoreCase(inputRM)){
                         beerFound = true;
-                        Nova.beerInStock.remove(j);
+                        Nebula.beerInStock.remove(j);
                         returnStr = "The beer selected, " + inputRM + ", has been removed from the menu.";
                     }
                 }
@@ -190,8 +190,8 @@ class showInventory implements Manager_interface, SysOut{ // Function will show 
     public ArrayList<Beer> beerInventory = new ArrayList<>();
     public ArrayList<String> sBeerInventory = new ArrayList<>();
     StringBuilder Beers = new StringBuilder();
-    public String execute(Brewery Nova){
-        for (Beer i: Nova.beerInStock){
+    public String execute(Brewery Nebula){
+        for (Beer i: Nebula.beerInStock){
             Beers.append(i.name + " Beer Sold: " + i.BeersSold + " Beer Stock: " + i.beerStockOunces+ "\n");
         }
         return Beers.toString();
@@ -211,7 +211,7 @@ class showEmployeeStats implements Manager_interface, SysOut{
 
 class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer when it is running low
     Scanner restockObj = new Scanner(System.in);
-    public String execute(Brewery Nova){
+    public String execute(Brewery Nebula){
         out("Which beer would you like to stock? (Please enter the name of the beer as it is on the list above.)");
         Boolean restocked = false;
         String returnBeer;
@@ -220,16 +220,16 @@ class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer
         int need = 0;
         while(loop){
             String beerToStock = restockObj.nextLine();
-            for (int i = 0; i < Nova.beerInStock.size(); i++){
-                if (Nova.beerInStock.get(i).name.equalsIgnoreCase(beerToStock)){
-                    out("Restocking chosen beer " + Nova.beerInStock.get(i) + "...");
-                    //Nova.beerInStock.get(i).beerStockOunces = Nova.beerInStock.get(i).beerStockOunces + 8000;
-                    if (Nova.beerInStock.get(i).beerStockOunces != ouncesNeeded)
+            for (int i = 0; i < Nebula.beerInStock.size(); i++){
+                if (Nebula.beerInStock.get(i).name.equalsIgnoreCase(beerToStock)){
+                    out("Restocking chosen beer " + Nebula.beerInStock.get(i) + "...");
+                    //Nebula.beerInStock.get(i).beerStockOunces = Nebula.beerInStock.get(i).beerStockOunces + 8000;
+                    if (Nebula.beerInStock.get(i).beerStockOunces != ouncesNeeded)
                     {
-                        int beerStockOunces = Nova.beerInStock.get(i).beerStockOunces;
+                        int beerStockOunces = Nebula.beerInStock.get(i).beerStockOunces;
                         need = ouncesNeeded - beerStockOunces;
-                        out("Restocking chosen beer: " +Nova.beerInStock.get(i).name + "...");
-                        Nova.beerInStock.get(i).beerStockOunces += need;
+                        out("Restocking chosen beer: " +Nebula.beerInStock.get(i).name + "...");
+                        Nebula.beerInStock.get(i).beerStockOunces += need;
                     }
                     restocked = true;
                     break;
@@ -260,17 +260,17 @@ class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer
 
 /* 
 class hireEmployee implements Manager_interface, SysOut{
-    public String execute(Brewery Nova){
+    public String execute(Brewery Nebula){
     }
 }
 class fireEmployee implements Manager_interface, SysOut{
-    public String execute(Brewery Nova){
+    public String execute(Brewery Nebula){
     }
 }
 */
 
 class Menu implements SysOut{
-    public void ManagerMenu(Brewery Nova, String ManagerName){
+    public void ManagerMenu(Brewery Nebula, String ManagerName){
         Boolean input = true;
         Scanner myObj = new Scanner(System.in);
         out("Welcome " + ManagerName + ", here are your options as manager of Nebula Brewing Co.");
@@ -285,7 +285,7 @@ class Menu implements SysOut{
             switch(breweryInput){
                 default:
                     out("You have not selcted a valid choice");
-                    ManagerMenu(Nova, ManagerName);
+                    ManagerMenu(Nebula, ManagerName);
                     break;
 
                 case "q":
@@ -300,7 +300,7 @@ class Menu implements SysOut{
                     while(inputA){
                         showEmployeeStats employeeStats = new showEmployeeStats();
 
-                        out("Here are your employees' stats for the day. \n" + employeeStats.execute(Nova) + "\n");
+                        out("Here are your employees' stats for the day. \n" + employeeStats.execute(Nebula) + "\n");
                         out("Enter the number of the option you wish to choose.");
                         out("1: Give employee a raise.");
                         out("2: Fire an employee.");
@@ -312,14 +312,14 @@ class Menu implements SysOut{
                             case "1":
                                 // Give choice employee a raise
                                 giveRaise giveEmployeeRaise = new giveRaise();
-                                out("Result: " + giveEmployeeRaise.execute(Nova));
+                                out("Result: " + giveEmployeeRaise.execute(Nebula));
                                 inputA = false;
                                 break;
                             
                             case "2":
                                 // Fire an employee
                                 fireEmployee fireEmployee = new fireEmployee();
-                                out("Result: " + fireEmployee.execute(Nova));
+                                out("Result: " + fireEmployee.execute(Nebula));
                                 break;
                             
                             case "3":
@@ -340,7 +340,7 @@ class Menu implements SysOut{
                     while(inputB){
                         showInventory BeerInventory = new showInventory();
 
-                        out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory.execute(Nova) + "\n"); //Shows the beer name, beers sold, and beer in stock
+                        out("Here is the name of the beer along with beers sold and the current inventory of each beer. \n" + BeerInventory.execute(Nebula) + "\n"); //Shows the beer name, beers sold, and beer in stock
                         out("Enter the number of the option you wish to choose.");
                         out("1: Restock Beer.");
                         out("2: GO BACK.");
@@ -350,7 +350,7 @@ class Menu implements SysOut{
                             case "1":
                                 //Gives manager option to restock beer.
                                 restockBeer beer = new restockBeer();
-                                out("Result:" + beer.execute(Nova));
+                                out("Result:" + beer.execute(Nebula));
                                 inputB = false;
                                 break;
 
@@ -376,12 +376,12 @@ class Menu implements SysOut{
                         switch(option){
                             case "1": //Option to add beer
                                 addNewBeer add = new addNewBeer();
-                                out(add.execute(Nova));
+                                out(add.execute(Nebula));
                                 break;
 
                             case "2": //Option to remove beer 
                                 removeBeer remove = new removeBeer();
-                                out(remove.execute(Nova));
+                                out(remove.execute(Nebula));
                                 break;
 
                             case "3":
