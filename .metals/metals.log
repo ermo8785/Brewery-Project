@@ -4629,3 +4629,107 @@ INFO: Unsupported notification method: $/setTrace
 =======
 >>>>>>> b9f7587258efda727c736b69cc79f94d05446ee5
 >>>>>>> 583a9b87d48ed8d5651ccf27d51b1129792c8f09
+2023.05.01 10:25:01 INFO  Started: Metals version 0.11.12 in workspace '/Users/ericsimac/OOAD/Brewery-Project' for client Visual Studio Code 1.77.3.
+May 01, 2023 10:25:01 AM org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+INFO: Flyway Community Edition 9.16.3 by Redgate
+May 01, 2023 10:25:01 AM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: See release notes here: https://rd.gt/416ObMi
+May 01, 2023 10:25:01 AM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: 
+May 01, 2023 10:25:05 AM org.flywaydb.core.internal.database.base.BaseDatabaseType createDatabase
+INFO: Database: jdbc:h2:file:/Users/ericsimac/OOAD/Brewery-Project/.metals/metals (H2 2.1)
+May 01, 2023 10:25:06 AM org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 4 migrations (execution time 00:00.085s)
+May 01, 2023 10:25:06 AM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema "PUBLIC": 4
+May 01, 2023 10:25:06 AM org.flywaydb.core.internal.command.DbMigrate logSummary
+INFO: Schema "PUBLIC" is up to date. No migration necessary.
+2023.05.01 10:25:06 INFO  time: initialize in 4.84s
+2023.05.01 10:25:09 WARN  Build server is not auto-connectable.
+2023.05.01 10:25:09 WARN  no build tool detected in workspace '/Users/ericsimac/OOAD/Brewery-Project'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.05.01 10:25:09 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Simulator.java
+2023.05.01 10:25:11 INFO  time: code lens generation in 2.04s
+2023.05.01 10:28:58 WARN  no build target for: /Users/ericsimac/OOAD/Brewery-Project/Manager.java
+2023.05.01 10:29:00 WARN  Running javac-semanticdb failed for file:///Users/ericsimac/OOAD/Brewery-Project/Manager.java. Output:
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:170: error: illegal start of expression
+<<<<<<< HEAD
+^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:170: error: illegal start of expression
+<<<<<<< HEAD
+  ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:170: error: illegal start of expression
+<<<<<<< HEAD
+    ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:171: error: > expected
+=======
+^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:171: error: illegal start of expression
+=======
+  ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:171: error: illegal start of expression
+=======
+    ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:171: error: illegal start of expression
+=======
+      ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:172: error: ';' expected
+        String returnStr = "";
+              ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:173: error: illegal start of expression
+>>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
+^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:173: error: illegal start of expression
+>>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
+   ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:173: error: illegal start of expression
+>>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
+      ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:173: error: ';' expected
+>>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
+           ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:173: error: ';' expected
+>>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
+                                                ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:183: error: illegal start of expression
+<<<<<<< HEAD
+^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:183: error: illegal start of expression
+<<<<<<< HEAD
+  ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:183: error: illegal start of expression
+<<<<<<< HEAD
+    ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:184: error: > expected
+                if(Nova.beerInStock.get(j).name == inputRM){
+                ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:185: error: illegal start of expression
+=======
+^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:185: error: illegal start of expression
+=======
+  ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:185: error: illegal start of expression
+=======
+    ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:185: error: illegal start of expression
+=======
+      ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:186: error: illegal start of expression
+                if(Nova.beerInStock.get(j).name.equalsIgnoreCase(inputRM)){
+                ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:187: error: illegal start of expression
+>>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
+^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:187: error: illegal start of expression
+>>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
+   ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:187: error: illegal start of expression
+>>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
+      ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:187: error: ';' expected
+>>>>>>> 8e1edc6e9a8bf59246af840519693b08443720bb
+           ^
+/Users/ericsimac/OOAD/Brewery-Project/Manager.java:414: error: reached end of file while parsing
+}
+ ^
+27 errors
