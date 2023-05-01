@@ -11,7 +11,7 @@ public abstract class Beer {
 
     // Will need beer in stock later on
     //int stock;
-
+    /* Composite Pattern Use Here */
     public Beer(){
 
     }
