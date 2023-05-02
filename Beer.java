@@ -4,6 +4,7 @@ public abstract class Beer {
     String name;
     Double cost;
     Double price;
+    Double HappyPrice;
     Double alcVol;
     int BeersSold;
     Enums.BeerType type; 
@@ -35,6 +36,7 @@ class IPA extends Beer {
         type = Enums.BeerType.IPA;
         cost = 4.50;
         price = 7.00;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.00; 
         BeersSold = 0;
         beerStockOunces = 8000;
@@ -46,6 +48,7 @@ class IPA extends Beer {
         type = Enums.BeerType.IPA;
         cost = 4.50;
         price = 7.00;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.00; 
         BeersSold = 0;
         beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
@@ -59,6 +62,7 @@ class Porter extends Beer {
         type = Enums.BeerType.IPA;
         cost = 4.00;
         price = 8.00;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 7.1; 
         BeersSold = 0;
         beerStockOunces = 0; // Will cost 400 dollars to make 8000 ounces
@@ -69,6 +73,7 @@ class Porter extends Beer {
         type = Enums.BeerType.IPA;
         cost = 4.00;
         price = 8.00;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 7.1; 
         BeersSold = 0;
         beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
@@ -82,6 +87,7 @@ class Sour extends Beer {
         type = Enums.BeerType.IPA;
         cost = 2.50;
         price = 5.00;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 4.5; 
         BeersSold = 0;
         beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
@@ -92,6 +98,7 @@ class Sour extends Beer {
         type = Enums.BeerType.IPA;
         cost = 2.50;
         price = 5.00;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 4.5; 
         BeersSold = 0;
         beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
@@ -105,6 +112,7 @@ class Stout extends Beer {
         type = Enums.BeerType.IPA;
         cost = 4.50;
         price = 9.00;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 9.1; 
         BeersSold = 0;
         beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
@@ -115,6 +123,7 @@ class Stout extends Beer {
         type = Enums.BeerType.IPA;
         cost = 4.50;
         price = 9.00;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 9.1; 
         BeersSold = 0;
         beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
@@ -127,6 +136,7 @@ class Ale extends Beer {
         type = Enums.BeerType.IPA;
         cost = 4.50;
         price = 7.00;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.0;
         BeersSold = 0;
         beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
@@ -137,6 +147,7 @@ class Ale extends Beer {
         type = Enums.BeerType.IPA;
         cost = 4.50;
         price = 7.00;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.0;
         BeersSold = 0;
         beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
@@ -149,6 +160,7 @@ class Lager extends Beer {
         type = Enums.BeerType.IPA;
         cost = 2.50;
         price = 6.50;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.00; 
         BeersSold = 0;
         beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
@@ -159,6 +171,7 @@ class Lager extends Beer {
         type = Enums.BeerType.IPA;
         cost = 2.50;
         price = 6.50;
+        HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.00; 
         BeersSold = 0;
         beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces

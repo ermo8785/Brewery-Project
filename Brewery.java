@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class Brewery implements SysOut {
-    ArrayList<Employee> employeeList;
-    ArrayList<Employee> departedEmployees;
-    ArrayList<Beer> beerInStock;
-    ArrayList<Beer> soldBeer;
-    public double budget;
+    ArrayList<Employee> employeeList; // a list of all employees currently employed
+    ArrayList<Employee> departedEmployees; // a list of all employees who have quit or been fired
+    ArrayList<Beer> beerInStock; // a list of all beers currently in stock
+    ArrayList<Beer> soldBeer; // a list of all beers sold
+    public double budget; // the brewery's current budget
 
-    Enums.DayOfWeek simDay;
+    Enums.DayOfWeek simDay; // the day of the week in the simulation
     
     Brewery(){
         employeeList = new ArrayList<>();
@@ -15,27 +15,32 @@ public class Brewery implements SysOut {
         beerInStock = new ArrayList<>();
         soldBeer = new ArrayList<>();
 
-        budget = 100000;
+        budget = 100000; // set initial budget to $100,000
 
-        BeerFactory beerFactory = new BeerFactory(beerInStock);
-        beerFactory.addMoreBeer("IPA").importBeer();
+        BeerFactory beerFactory = new BeerFactory(beerInStock); // create a beer factory object
+        beerFactory.addMoreBeer("IPA").importBeer(); // import 6 different types of beer into the beerInStock list
         beerFactory.addMoreBeer("Porter").importBeer();
         beerFactory.addMoreBeer("Stout").importBeer();
         beerFactory.addMoreBeer("Lager").importBeer();
         beerFactory.addMoreBeer("Sour").importBeer();
         beerFactory.addMoreBeer("Ale").importBeer();
 
-        Employee newEmployee = new Bartender();
-        employeeList.add(newEmployee);
+        Employee newEmployee = new Bartender(); // create a new bartender object
+        employeeList.add(newEmployee); // add three copies of the same new bartender object to the employeeList
         employeeList.add(newEmployee);
         employeeList.add(newEmployee);
     }
+    // A method to get the current budget of the brewery
     double getBudget(){
         return budget;
     }
+
+    // A method to add money to the brewery's budget
     void moneyIn(double income){
         budget += income;
     }
+
+    // A method to subtract money from the brewery's budget and handle budget overruns
     void moneyOut(double cash){
         budget -= cash;
         if(budget < 0){
@@ -43,15 +48,19 @@ public class Brewery implements SysOut {
             out("*** Budget overrun *** Added $250K, current budget: " + Utility.asDollar(budget));
         }
     }
+
+    // A method to generate a list of customers for the day based on the day of the week
     ArrayList<Customer> getCustomers(Enums.DayOfWeek day){
         int cusMin = 0;
         int cusMax = 20;
 
+        // Determine the minimum and maximum number of customers based on the day of the week
         if (day == Enums.DayOfWeek.Mon || day == Enums.DayOfWeek.Wed){
             cusMin = 10; 
             cusMax= 50;
         }
 
+        // Create a list of customers with a random number of customers within the determined range
         ArrayList<Customer> customers = new ArrayList<Customer>();
         int customerCount = Utility.rndFromRange(cusMin, cusMax);
         for (int i=1; i<=customerCount; ++i) customers.add(new Customer());
@@ -59,8 +68,12 @@ public class Brewery implements SysOut {
 
         return customers;
     }
+
+    // A method to hire the required number of employees for the brewery
     void hireEmployees(){
         final int employeeNum = 3;
+
+        // Loop through all the types of employees and hire enough employees to reach the required number
         for (Enums.EmployeeType t : Enums.EmployeeType.values()){
             int typeInList = Employee.howManyByType(employeeList, t);
             int need = employeeNum - typeInList;
@@ -70,25 +83,18 @@ public class Brewery implements SysOut {
             }
         }
     }
+
+    // A method to add a new employee to the employee list
     void addEmployee(Enums.EmployeeType t){
         Employee newBartender = null;
         if (t == Enums.EmployeeType.Bartender) newBartender = new Bartender();
+
+        // Add the new employee to the employee list and output a message indicating the employee has been hired
         out("Hired a new " + newBartender.type + " named" + newBartender.name);
         employeeList.add(newBartender);
     }
-    /*void restockBeer(){
-        final int ouncesNeeded = 8000;
 
-        for (int i = 0; i < beerInStock.size(); i++){
-            if (beerInStock.get(i).beerStockOunces != ouncesNeeded){
-                int beerStockOunces = beerInStock.get(i).beerStockOunces;
-                int need = ouncesNeeded - beerStockOunces;
-
-                beerStockOunces += need;
-            }
-        }
-    }*/
-
+    // A method to pay all the employees and track their pay and work days
     void payEmployees(){
         for (Employee e : employeeList){
             moneyOut(e.pay);
@@ -98,33 +104,47 @@ public class Brewery implements SysOut {
     }
 
     void checkForQuitters(){
+        // get all employees with the type of "Bartender"
         ArrayList <Employee> bartender = Employee.getEmployeesByType(employeeList, Enums.EmployeeType.Bartender);
+        // generate a random number between 0 and 1
         double bartenderQuit = Math.random(); 
-
+    
+        // if the random number is less than or equal to 0.05 (5% chance), a bartender quits
         if(bartenderQuit <= 0.05){
+            // select a random bartender who quits
             int randomIndex = Utility.rndFromRange(0, 2);
             Bartender bartenderName = (Bartender) bartender.get(randomIndex);
+            // add the bartender to the list of departed employees
             departedEmployees.add(bartenderName);
-
+    
+            // remove the bartender from the list of current employees
             for (int i = 0; i < employeeList.size(); i++){
                 if (employeeList.get(i) == bartenderName){
                     employeeList.remove(i);
                 }
             }
+            // print a message that the bartender has quit
             out("Bartender " + bartenderName.name + " has quit Nebula Brewing Co.");
         }
     }
+    
     void checkForMisbehavior(Enums.DayOfWeek day){
+        // get all employees with the type of "Bartender"
         ArrayList <Employee> bartender = Employee.getEmployeesByType(employeeList, Enums.EmployeeType.Bartender);
+        // generate a random number between 0 and 1
         double bartenderMisbehaved = Math.random();
-
-        // if it's happy hour all day, there's a higher chance that an employee may misbehave
+    
+        // if it's Monday or Wednesday, there's a higher chance of an employee misbehaving during happy hour
         if (day == Enums.DayOfWeek.Mon || day == Enums.DayOfWeek.Wed){
+            // if the random number is less than or equal to 0.60 (60% chance), a bartender misbehaves
             if (bartenderMisbehaved <= 0.60){
+                // select a random bartender who misbehaves
                 int randomIndex = Utility.rndFromRange(0,2);
                 Bartender misbehavingBartender = (Bartender) bartender.get(randomIndex);
+                // add the bartender to the list of departed employees
                 departedEmployees.add(misbehavingBartender);
     
+                // give the bartender a strike
                 for (int i = 0; i < employeeList.size(); i++){
                     if (employeeList.get(i) == misbehavingBartender){
                         employeeList.get(i).strikes++;
@@ -132,12 +152,17 @@ public class Brewery implements SysOut {
                 }
             }
         }
+        // for any other day of the week
         else{
+            // if the random number is less than or equal to 0.35 (35% chance), a bartender misbehaves
             if (bartenderMisbehaved <= 0.35){
+                // select a random bartender who misbehaves
                 int randomIndex = Utility.rndFromRange(0,2);
                 Bartender misbehavingBartender = (Bartender) bartender.get(randomIndex);
+                // add the bartender to the list of departed employees
                 departedEmployees.add(misbehavingBartender);
     
+                // give the bartender a strike
                 for (int i = 0; i < employeeList.size(); i++){
                     if (employeeList.get(i) == misbehavingBartender){
                         employeeList.get(i).strikes++;
@@ -148,43 +173,116 @@ public class Brewery implements SysOut {
     }
 
     void happyHourAllDay(Enums.DayOfWeek day){
-        out("Nice! Happy Hour All Day!");
-    }
+        out("Nice! Happy Hour All Day! There are more customers buying beer today and a chance of greater sells!");
 
-    void normalDay(Enums.DayOfWeek day){
-        out("Nebula Brewing Co. is opening...");
-
+        // Hire employees
         hireEmployees();
-        //restockBeer();
-
-        out("The bartenders are serving customers...");
         
+        // Print message about bartenders serving customers
+        out("The bartenders are serving customers...");
+            
+        // Get the list of customers for the day
         ArrayList<Customer> customers = getCustomers(day);
+    
+        // Get the list of bartenders
         ArrayList<Employee> bartenders =  Employee.getEmployeesByType(employeeList, Enums.EmployeeType.Bartender);
-
+    
+        // Loop through the customers and serve them beer
         for (Customer c : customers){
             out("Customer "+c.name+" wants a "+c.preference);
+    
+            // Select a random bartender
             int randomBartender = Utility.rndFromRange(0, bartenders.size()-1);
             Bartender bartender = (Bartender) bartenders.get(randomBartender);
-            Beer beerSold = bartender.serveBeer(c, beerInStock);
-
+    
+            // Serve the customer a beer
+            Beer beerSold = bartender.HappyServeBeer(c, beerInStock);
+    
+            // If the beer is not null (i.e. the bartender has the beer in stock)
             if(beerSold != null){
+                // Add the beer to the list of sold beers
                 soldBeer.add(beerSold);
+    
+                // Add the price of the beer to the money earned
                 moneyIn(beerSold.price);
+    
+                // Remove the beer from the stock
                 beerInStock.removeIf(n -> n.name == beerSold.name);
-
+    
+                // Add the beer back to the stock
                 beerInStock.add(beerSold);
+    
+                // Add the cost of the beer to the money spent
                 moneyOut(beerSold.cost);
-
             }
         }
-
+    
+        // Check if any employee has misbehaved
         checkForMisbehavior(day);
+    
+        // Check if any employee has quit
         checkForQuitters();
+    
+        // Pay employees
+        payEmployees();
+}
+    
+
+    void normalDay(Enums.DayOfWeek day){
+        // Print opening message
+        out("Nebula Brewing Co. is opening...");
+    
+        // Hire employees
+        hireEmployees();
+        
+        // Print message about bartenders serving customers
+        out("The bartenders are serving customers...");
+            
+        // Get the list of customers for the day
+        ArrayList<Customer> customers = getCustomers(day);
+    
+        // Get the list of bartenders
+        ArrayList<Employee> bartenders =  Employee.getEmployeesByType(employeeList, Enums.EmployeeType.Bartender);
+    
+        // Loop through the customers and serve them beer
+        for (Customer c : customers){
+            out("Customer "+c.name+" wants a "+c.preference);
+    
+            // Select a random bartender
+            int randomBartender = Utility.rndFromRange(0, bartenders.size()-1);
+            Bartender bartender = (Bartender) bartenders.get(randomBartender);
+    
+            // Serve the customer a beer
+            Beer beerSold = bartender.serveBeer(c, beerInStock);
+    
+            // If the beer is not null (i.e. the bartender has the beer in stock)
+            if(beerSold != null){
+                // Add the beer to the list of sold beers
+                soldBeer.add(beerSold);
+    
+                // Add the price of the beer to the money earned
+                moneyIn(beerSold.price);
+    
+                // Remove the beer from the stock
+                beerInStock.removeIf(n -> n.name == beerSold.name);
+    
+                // Add the beer back to the stock
+                beerInStock.add(beerSold);
+    
+                // Add the cost of the beer to the money spent
+                moneyOut(beerSold.cost);
+            }
+        }
+    
+        // Check if any employee has misbehaved
+        checkForMisbehavior(day);
+    
+        // Check if any employee has quit
+        checkForQuitters();
+    
+        // Pay employees
         payEmployees();
     }
+    
 
-    void reportOut(Enums.DayOfWeek day){
-        
-    }
 }
