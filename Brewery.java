@@ -71,14 +71,14 @@ public class Brewery implements SysOut {
 
     // A method to hire the required number of employees for the brewery
     void hireEmployees(){
-        final int employeeNum = 3;
+        final int employeeNum = 2;
 
         // Loop through all the types of employees and hire enough employees to reach the required number
         for (Enums.EmployeeType t : Enums.EmployeeType.values()){
             int typeInList = Employee.howManyByType(employeeList, t);
             int need = employeeNum - typeInList;
 
-            for (int i = 1; i <= need; i++){
+            for (int i = 0; i <= need; i++){
                 addEmployee(t);
             }
         }

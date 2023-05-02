@@ -48,7 +48,7 @@ public abstract class Employee implements SysOut{
 // A class representing a Bartender, which is a type of Employee
 class Bartender extends Employee{
     // Class fields
-    static List<String> names = Arrays.asList("Fred","Ethel","Lucy","Desi");
+    static List<String> names = Arrays.asList("Fred","Ethel","Lucy","Desi", "Eric", "Jokic", "Micheal", "Aaron", "Jamal");
     static Namer namer = new Namer(names);
     
     // Default constructor
