@@ -1,0 +1,12 @@
+ Number of types of beers in stock: 6 
+Beers sold today: 6Current number of employees: 3 
+Current number of employees who quit or have been fired: 0 
+Current budget: $99,847.00 
+Number of types of beers in stock: 6 
+Beers sold today: 7Current number of employees: 2 
+Current number of employees who quit or have been fired: 2 
+Current budget: $99,731.50 
+Number of types of beers in stock: 6 
+Beers sold today: 18Current number of employees: 3 
+Current number of employees who quit or have been fired: 2 
+Current budget: $99,601.00 

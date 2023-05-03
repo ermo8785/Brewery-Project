@@ -12,7 +12,7 @@ public class Brewery implements SysOut {
     ArrayList <Beer> Sourlist;
     ArrayList <Beer> Alelist;
     public double budget; // the brewery's current budget
-
+    String textOut = " ";
     Enums.DayOfWeek simDay; // the day of the week in the simulation
     
     Brewery(){
@@ -239,7 +239,8 @@ public class Brewery implements SysOut {
     
         // Pay employees
         payEmployees();
-}
+        reportOut(day);
+    }
     
 
     void normalDay(Enums.DayOfWeek day){
@@ -296,7 +297,26 @@ public class Brewery implements SysOut {
     
         // Pay employees
         payEmployees();
+        
+        reportOut(day);
     }
-    
+    void reportOut(Enums.DayOfWeek day){
+        out("Number of types of beers in stock: "+beerInStock.size());
+        textOut = textOut.concat("Number of types of beers in stock: "+beerInStock.size()+" \n");
+        out("Beers sold today: " +soldBeer.size());
+        textOut = textOut.concat("Beers sold today: " +soldBeer.size()+ " \n");
+        out("Current number of employees: "+employeeList.size());
+        textOut = textOut.concat("Current number of employees: "+employeeList.size()+" \n");
+        out("Current number of employees who quit or have been fired: " + departedEmployees.size());
+        textOut = textOut.concat("Current number of employees who quit or have been fired: " + departedEmployees.size()+ " \n");
+        out("Current budget: "+Utility.asDollar(getBudget()));
+        textOut = textOut.concat("Current budget: "+Utility.asDollar(getBudget())+ " \n");
+
+        writeToFile(day);
+    }
+    void writeToFile(Enums.DayOfWeek day){
+        Logger outFile = new Logger(day);
+        outFile.writeLog(textOut);
+    }
 
 }
