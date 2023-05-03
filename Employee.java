@@ -259,7 +259,7 @@ class Bartender extends Employee{
             }
         }
         //Beer b = beerInStock.get(0);
-
+        String beerName = b.name;
         if(c.preference == Enums.BeerType.IPA) saleChance += .1; // TODO Find a way to have customer buy a specific kind of beer.
         if(c.preference == Enums.BeerType.Stout) saleChance += .1;
         if(c.preference == Enums.BeerType.Lager) saleChance += .1;
@@ -270,7 +270,7 @@ class Bartender extends Employee{
         double chance = Utility.rnd();
 
         if (chance <= saleChance){ // TODO: Customer needs to buy a specfic beer from the inventory and you can reduce the ounces and add to beers sold to that specfic beer 
-            out("Customer "+c.name+" got his beer from "+name);
+            out("Customer "+c.name+" got a "+beerName + " from" +name);
             return b;
         }
         else{

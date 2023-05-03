@@ -32,7 +32,7 @@ class IPA extends Beer {
 
     IPA() {
         super();
-        name = "Base Ipa";
+        name = "Milky Way IPA";
         type = Enums.BeerType.IPA;
         cost = 4.50;
         price = 7.00;
@@ -58,7 +58,7 @@ class Porter extends Beer {
 
     Porter() {
         super();
-        name = "Base Porter";
+        name = "Pluto's Porter";
         type = Enums.BeerType.IPA;
         cost = 4.00;
         price = 8.00;
@@ -83,7 +83,7 @@ class Sour extends Beer {
 
     Sour() {
         super();
-        name = "Base Sour Beer";
+        name = "Meteor Sour";
         type = Enums.BeerType.IPA;
         cost = 2.50;
         price = 5.00;
@@ -108,7 +108,7 @@ class Stout extends Beer {
 
     Stout() {
         super();
-        name = "Base Stout";
+        name = "Galactical Stout";
         type = Enums.BeerType.IPA;
         cost = 4.50;
         price = 9.00;
@@ -132,7 +132,7 @@ class Stout extends Beer {
 class Ale extends Beer {
     Ale() {
         super();
-        name = "Base Ale";
+        name = "Space Ale-ien";
         type = Enums.BeerType.IPA;
         cost = 4.50;
         price = 7.00;
@@ -156,7 +156,7 @@ class Ale extends Beer {
 class Lager extends Beer {
     Lager() {
         super();
-        name = "Base Lager";
+        name = "Nova Lager";
         type = Enums.BeerType.IPA;
         cost = 2.50;
         price = 6.50;
