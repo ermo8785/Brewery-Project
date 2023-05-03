@@ -70,19 +70,9 @@ class Bartender extends Employee{
             .nextInt(Min, Max + 1);
     }
 
-    public static boolean checkForIndex(ArrayList<Integer>idxs, int index){
-        boolean val = false;
-        for (int i = 0; i < idxs.size(); i++){
-            if (index == idxs.get(i)){
-                val = true;
-            }
-        }
-        return val;
-        
-    }
     
     // Method for serving beer to a customer, given a list of available beers
-    Beer serveBeer(Customer c, ArrayList<Beer> beerInStock){
+    Beer serveBeer(Customer c, ArrayList<Beer> beerInStock, ArrayList<Beer> IPAlist, ArrayList<Beer> Porterlist, ArrayList<Beer> Stoutlist,ArrayList<Beer> Alelist, ArrayList<Beer> Sourlist, ArrayList<Beer> Lagerlist){
         // Set initial sale chance to 70%
         double saleChance = .7;
         
@@ -140,43 +130,78 @@ class Bartender extends Employee{
         double chance = Utility.rnd();
 
         if (chance <= saleChance){ // TODO: Customer needs to buy a specfic beer from the inventory and you can reduce the ounces and add to beers sold to that specfic beer 
-            boolean random = true;
-            boolean check;
-            int count = 0;
-            ArrayList <Integer> Idx = new ArrayList<>();
-            while (random){
-                boolean Clear = true;
-                int beer = getRandomValue(0, beerInStock.size()-1);
-                Idx.add(beer);
-                // For loop will check to see if the index has already been checked for the type of beer
-                check = checkForIndex(Idx, beer);
-                while (Clear){
-                    if (!check){
-                        beer = getRandomValue(0, beerInStock.size()-1);
-                        check = checkForIndex(Idx, beer);
-                    }
-                    else if (check){
-                        Clear = false;
-                    }
-                }
-                // The next couple of lines check to see if the beer is of the type the customer wants
-                Beer beerName = beerInStock.get(beer);
-                if (beerName.type == c.preference){
-                    beerName.BeersSold += 1;
-                    beerName.beerStockOunces -= 8;
-                    out("Customer "+c.name+" bought a "+ beerName.name + " from bartender " +name);
-                    random = false;
-                }
-                else if (count > beerInStock.size()){
-                    out ("BEER WAS NOT FOUND TO CHANGE STUFF");
-                    random = false;
+
+            int number;
+            Beer buy = null;
+            for (int i = 0; i < beerInStock.size(); i++){
+                Beer name = beerInStock.get(i);
+                if (name.type == Enums.BeerType.IPA){
+                    IPAlist.add(name);
+                    out ("Size = " + IPAlist.size());
                 }
 
-                count ++;
+                if (name.type == Enums.BeerType.Porter){
+                    Porterlist.add(name);
+                    out ("Size = " + Porterlist.size());
+                }
+
+                if (name.type == Enums.BeerType.Stout){
+                    Stoutlist.add(name);
+                    out ("Size = " + Stoutlist.size());
+                }
+
+                if (name.type == Enums.BeerType.Lager){
+                    Lagerlist.add(name);
+                    out ("Size = " + Lagerlist.size());
+                }
+
+                if (name.type == Enums.BeerType.Sour){
+                    Sourlist.add(name);
+                    out ("Size = " + Sourlist.size());
+                }
+
+                if (name.type == Enums.BeerType.Ale){
+                    Alelist.add(name);
+                    out ("Size = " + Alelist.size());
+                }
+        
             }
 
+            if(c.preference == Enums.BeerType.IPA){
+                number = getRandomValue(0, IPAlist.size());
+                buy = IPAlist.get(number);
+            }
+
+            if(c.preference == Enums.BeerType.Porter){
+                number = getRandomValue(0, Porterlist.size());
+                buy = Porterlist.get(number);
+            }
+
+            if(c.preference == Enums.BeerType.Lager){
+                number = getRandomValue(0, Lagerlist.size());
+                buy = Lagerlist.get(number);
+            }
+
+            if(c.preference == Enums.BeerType.Sour){
+                number = getRandomValue(0, Sourlist.size());
+                buy = Sourlist.get(number);
+            }
+
+            if(c.preference == Enums.BeerType.Stout){
+                number = getRandomValue(0, Stoutlist.size());
+                buy = Stoutlist.get(number);
+            }
+
+            if(c.preference == Enums.BeerType.Ale){
+                number = getRandomValue(0, Alelist.size());
+                buy = Alelist.get(number);
+            }
+
+            out ("Customer " + c.name + " has bought the beer " + buy.name + " from the bartender " + name + ".");
             return b;
         }
+
+
         else{
             out("Customer " + c.name + " decided not to buy a drink.");
             return null;

@@ -5,6 +5,12 @@ public class Brewery implements SysOut {
     ArrayList<Employee> departedEmployees; // a list of all employees who have quit or been fired
     ArrayList<Beer> beerInStock; // a list of all beers currently in stock
     ArrayList<Beer> soldBeer; // a list of all beers sold
+    ArrayList <Beer> IPAlist;
+    ArrayList <Beer> Porterlist;
+    ArrayList <Beer> Stoutlist;
+    ArrayList <Beer> Lagerlist;
+    ArrayList <Beer> Sourlist;
+    ArrayList <Beer> Alelist;
     public double budget; // the brewery's current budget
 
     Enums.DayOfWeek simDay; // the day of the week in the simulation
@@ -14,6 +20,12 @@ public class Brewery implements SysOut {
         departedEmployees = new ArrayList<>();
         beerInStock = new ArrayList<>();
         soldBeer = new ArrayList<>();
+        IPAlist = new ArrayList<>();
+        Porterlist = new ArrayList<>();
+        Stoutlist = new ArrayList<>();
+        Lagerlist = new ArrayList<>();
+        Sourlist = new ArrayList<>();
+        Alelist = new ArrayList<>();
 
         budget = 100000; // set initial budget to $100,000
 
@@ -255,7 +267,7 @@ public class Brewery implements SysOut {
             Bartender bartender = (Bartender) bartenders.get(randomBartender);
     
             // Serve the customer a beer
-            Beer beerSold = bartender.serveBeer(c, beerInStock);
+            Beer beerSold = bartender.serveBeer(c, beerInStock, IPAlist, Porterlist,Stoutlist,Sourlist,Alelist,Lagerlist);
     
             // If the beer is not null (i.e. the bartender has the beer in stock)
             if(beerSold != null){

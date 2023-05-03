@@ -1,0 +1,4 @@
+Uri: jdt://contents/java.base/jdk.internal.util/Preconditions.class?%3DBrewery-Project_475f77bd%2F%5C%2FLibrary%5C%2FJava%5C%2FJavaVirtualMachines%5C%2Fadoptopenjdk-16.jdk%5C%2FContents%5C%2FHome%5C%2Flib%5C%2Fjrt-fs.jar%60java.base%3D%2Fjavadoc_location%3D%2Fhttps%3A%5C%2F%5C%2Fdocs.oracle.com%5C%2Fen%5C%2Fjava%5C%2Fjavase%5C%2F16%5C%2Fdocs%5C%2Fapi%5C%2F%3D%2F%3Cjdk.internal.util%28Preconditions.class
+
+Error message: Provider "jdt" not installed
+Error: java.nio.file.FileSystemNotFoundException: Provider "jdt" not installed
