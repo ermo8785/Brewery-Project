@@ -4,7 +4,7 @@ public class Simulator implements SysOut {
     final int numDays;
     Enums.DayOfWeek dayOfWeek;
     Simulator() {
-        numDays = 5;  // magic number for days to run here
+        numDays = 2;  // magic number for days to run here
         dayOfWeek = Utility.randomEnum(Enums.DayOfWeek.class);  // we'll start on a random day (for fun)
     }
 
@@ -22,7 +22,9 @@ public class Simulator implements SysOut {
     void run() {
         Brewery brewery = new Brewery();
         Scanner myObj = new Scanner(System.in);
-        out("Welcome new manager! What is your name? ");
+        out("\uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \n \n" );
+        out("\uD83C\uDF7A" + "  Welcome new manager! What is your name? " + " \uD83C\uDF7A");
+        out("\n \n \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A \uD83C\uDF7A");
         String managerName = myObj.nextLine();
         for (int day = 1; day <= numDays; ++day) {
             out(">>> Start Simulation Day "+day+" "+dayOfWeek);
