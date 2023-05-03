@@ -294,10 +294,12 @@ public class Brewery implements SysOut {
         textOut = textOut.concat("Beers sold today: " +soldBeer.size());
         out("Current number of employees: "+employeeList.size());
         textOut = textOut.concat("Current number of employees: "+employeeList.size()+" \n");
-        out("Current number of employees who quit or have been fired: " + departedEmployees.size()+ " \n");
-        textOut = textOut.concat();
+        out("Current number of employees who quit or have been fired: " + departedEmployees.size());
+        textOut = textOut.concat("Current number of employees who quit or have been fired: " + departedEmployees.size()+ " \n");
         out("Current budget: "+Utility.asDollar(getBudget()));
         textOut = textOut.concat("Current budget: "+Utility.asDollar(getBudget())+ " \n");
+
+        writeToFile(day);
     }
     void writeToFile(Enums.DayOfWeek day){
         Logger outFile = new Logger(day);
