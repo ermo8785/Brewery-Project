@@ -27,7 +27,9 @@ public class Brewery implements SysOut {
 
         Employee newEmployee = new Bartender(); // create a new bartender object
         employeeList.add(newEmployee); // add three copies of the same new bartender object to the employeeList
+        newEmployee = new Bartender(); 
         employeeList.add(newEmployee);
+        newEmployee = new Bartender(); 
         employeeList.add(newEmployee);
     }
     // A method to get the current budget of the brewery
@@ -90,7 +92,7 @@ public class Brewery implements SysOut {
         if (t == Enums.EmployeeType.Bartender) newBartender = new Bartender();
 
         // Add the new employee to the employee list and output a message indicating the employee has been hired
-        out("Hired a new " + newBartender.type + " named" + newBartender.name);
+        out("Hired a new " + newBartender.type + " named " + newBartender.name);
         employeeList.add(newBartender);
     }
 

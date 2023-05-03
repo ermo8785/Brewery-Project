@@ -203,7 +203,7 @@ class showEmployeeStats implements Manager_interface, SysOut{
     StringBuilder employees = new StringBuilder();
     public String execute(Brewery Nebula){
         for (Employee e : Nebula.employeeList){
-            employees.append(e.name + "- Misbehavior Strikes: " + e.strikes + " | Days Worked: " + e.daysWorked + " | Pay Earned: " + e.payEarned);
+            employees.append(e.name + "- Misbehavior Strikes: " + e.strikes + " | Days Worked: " + e.daysWorked + " | Pay Earned: " + e.payEarned + " ");
         }
         return employees.toString();
     }
