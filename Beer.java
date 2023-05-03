@@ -59,7 +59,7 @@ class Porter extends Beer {
     Porter() {
         super();
         name = "Pluto's Porter";
-        type = Enums.BeerType.IPA;
+        type = Enums.BeerType.Porter;
         cost = 4.00;
         price = 8.00;
         HappyPrice = 4.00; //Four dollar Beers!
@@ -70,7 +70,7 @@ class Porter extends Beer {
     Porter(String beerName) {
         super();
         name = beerName;
-        type = Enums.BeerType.IPA;
+        type = Enums.BeerType.Porter;
         cost = 4.00;
         price = 8.00;
         HappyPrice = 4.00; //Four dollar Beers!
@@ -84,7 +84,7 @@ class Sour extends Beer {
     Sour() {
         super();
         name = "Meteor Sour";
-        type = Enums.BeerType.IPA;
+        type = Enums.BeerType.Sour;
         cost = 2.50;
         price = 5.00;
         HappyPrice = 4.00; //Four dollar Beers!
@@ -95,7 +95,7 @@ class Sour extends Beer {
     Sour(String beerName) {
         super();
         name = beerName;
-        type = Enums.BeerType.IPA;
+        type = Enums.BeerType.Sour;
         cost = 2.50;
         price = 5.00;
         HappyPrice = 4.00; //Four dollar Beers!
@@ -109,7 +109,7 @@ class Stout extends Beer {
     Stout() {
         super();
         name = "Galactical Stout";
-        type = Enums.BeerType.IPA;
+        type = Enums.BeerType.Stout;
         cost = 4.50;
         price = 9.00;
         HappyPrice = 4.00; //Four dollar Beers!
@@ -120,7 +120,7 @@ class Stout extends Beer {
     Stout(String beerName) {
         super();
         name = beerName;
-        type = Enums.BeerType.IPA;
+        type = Enums.BeerType.Stout;
         cost = 4.50;
         price = 9.00;
         HappyPrice = 4.00; //Four dollar Beers!
@@ -133,7 +133,7 @@ class Ale extends Beer {
     Ale() {
         super();
         name = "Space Ale-ien";
-        type = Enums.BeerType.IPA;
+        type = Enums.BeerType.Ale;
         cost = 4.50;
         price = 7.00;
         HappyPrice = 4.00; //Four dollar Beers!
@@ -144,7 +144,7 @@ class Ale extends Beer {
     Ale(String beerName) {
         super();
         name = beerName;
-        type = Enums.BeerType.IPA;
+        type = Enums.BeerType.Ale;
         cost = 4.50;
         price = 7.00;
         HappyPrice = 4.00; //Four dollar Beers!
@@ -157,7 +157,7 @@ class Lager extends Beer {
     Lager() {
         super();
         name = "Nova Lager";
-        type = Enums.BeerType.IPA;
+        type = Enums.BeerType.Lager;
         cost = 2.50;
         price = 6.50;
         HappyPrice = 4.00; //Four dollar Beers!
@@ -168,7 +168,7 @@ class Lager extends Beer {
     Lager(String beerName) {
         super();
         name = beerName;
-        type = Enums.BeerType.IPA;
+        type = Enums.BeerType.Lager;
         cost = 2.50;
         price = 6.50;
         HappyPrice = 4.00; //Four dollar Beers!

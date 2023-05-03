@@ -5,12 +5,7 @@ public class Brewery implements SysOut {
     ArrayList<Employee> departedEmployees; // a list of all employees who have quit or been fired
     ArrayList<Beer> beerInStock; // a list of all beers currently in stock
     ArrayList<Beer> soldBeer; // a list of all beers sold
-    ArrayList <Beer> IPAlist;
-    ArrayList <Beer> Porterlist;
-    ArrayList <Beer> Stoutlist;
-    ArrayList <Beer> Lagerlist;
-    ArrayList <Beer> Sourlist;
-    ArrayList <Beer> Alelist;
+
     public double budget; // the brewery's current budget
     String textOut = " ";
     Enums.DayOfWeek simDay; // the day of the week in the simulation
@@ -20,12 +15,6 @@ public class Brewery implements SysOut {
         departedEmployees = new ArrayList<>();
         beerInStock = new ArrayList<>();
         soldBeer = new ArrayList<>();
-        IPAlist = new ArrayList<>();
-        Porterlist = new ArrayList<>();
-        Stoutlist = new ArrayList<>();
-        Lagerlist = new ArrayList<>();
-        Sourlist = new ArrayList<>();
-        Alelist = new ArrayList<>();
 
         budget = 100000; // set initial budget to $100,000
 
@@ -43,6 +32,7 @@ public class Brewery implements SysOut {
         employeeList.add(newEmployee);
         newEmployee = new Bartender(); 
         employeeList.add(newEmployee);
+
     }
     // A method to get the current budget of the brewery
     double getBudget(){
@@ -246,6 +236,48 @@ public class Brewery implements SysOut {
     void normalDay(Enums.DayOfWeek day){
         // Print opening message
         out("Nebula Brewing Co. is opening...");
+
+        //Set the beers in the right array of each type 
+        ArrayList <Beer> IPAlist;
+        ArrayList <Beer> Porterlist;
+        ArrayList <Beer> Stoutlist;
+        ArrayList <Beer> Lagerlist;
+        ArrayList <Beer> Sourlist;
+        ArrayList <Beer> Alelist;
+
+        IPAlist = new ArrayList<>();
+        Porterlist = new ArrayList<>();
+        Stoutlist = new ArrayList<>();
+        Lagerlist = new ArrayList<>();
+        Sourlist = new ArrayList<>();
+        Alelist = new ArrayList<>();
+
+        for (int i = 0; i < beerInStock.size(); i ++){
+            Beer name = beerInStock.get(i);
+            if (name.type == Enums.BeerType.IPA){
+                IPAlist.add(name);
+            }
+
+            if (name.type == Enums.BeerType.Stout){
+                Stoutlist.add(name);
+            }
+
+            if (name.type == Enums.BeerType.Sour){
+                Sourlist.add(name);
+            }
+
+            if (name.type == Enums.BeerType.Porter){
+                Porterlist.add(name);
+            }
+
+            if (name.type == Enums.BeerType.Lager){
+                Lagerlist.add(name);
+            }
+
+            if (name.type == Enums.BeerType.IPA){
+                IPAlist.add(name);
+            }
+        }
     
         // Hire employees
         hireEmployees();

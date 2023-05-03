@@ -136,65 +136,71 @@ class Bartender extends Employee{
             for (int i = 0; i < beerInStock.size(); i++){
                 Beer name = beerInStock.get(i);
                 if (name.type == Enums.BeerType.IPA){
-                    IPAlist.add(name);
-                    out ("Size = " + IPAlist.size());
+                    IPAlist.add(name);        
                 }
 
                 if (name.type == Enums.BeerType.Porter){
                     Porterlist.add(name);
-                    out ("Size = " + Porterlist.size());
                 }
 
                 if (name.type == Enums.BeerType.Stout){
                     Stoutlist.add(name);
-                    out ("Size = " + Stoutlist.size());
                 }
 
                 if (name.type == Enums.BeerType.Lager){
                     Lagerlist.add(name);
-                    out ("Size = " + Lagerlist.size());
                 }
 
                 if (name.type == Enums.BeerType.Sour){
                     Sourlist.add(name);
-                    out ("Size = " + Sourlist.size());
                 }
 
                 if (name.type == Enums.BeerType.Ale){
                     Alelist.add(name);
-                    out ("Size = " + Alelist.size());
                 }
         
             }
 
             if(c.preference == Enums.BeerType.IPA){
-                number = getRandomValue(0, IPAlist.size());
+                number = getRandomValue(0, IPAlist.size()-1);
                 buy = IPAlist.get(number);
+                buy.BeersSold += 1;
+                buy.beerStockOunces -= 8;
             }
 
             if(c.preference == Enums.BeerType.Porter){
-                number = getRandomValue(0, Porterlist.size());
+                number = getRandomValue(0, Porterlist.size()-1);
                 buy = Porterlist.get(number);
+                buy.BeersSold += 1;
+                buy.beerStockOunces -= 8;
             }
 
             if(c.preference == Enums.BeerType.Lager){
-                number = getRandomValue(0, Lagerlist.size());
+                number = getRandomValue(0, Lagerlist.size()-1);
                 buy = Lagerlist.get(number);
+                buy.BeersSold += 1;
+                buy.beerStockOunces -= 8;
             }
 
             if(c.preference == Enums.BeerType.Sour){
-                number = getRandomValue(0, Sourlist.size());
+                number = getRandomValue(0, Sourlist.size()-1);
                 buy = Sourlist.get(number);
+                buy.BeersSold += 1;
+                buy.beerStockOunces -= 8;
             }
 
             if(c.preference == Enums.BeerType.Stout){
-                number = getRandomValue(0, Stoutlist.size());
+                number = getRandomValue(0, Stoutlist.size()-1);
                 buy = Stoutlist.get(number);
+                buy.BeersSold += 1;
+                buy.beerStockOunces -= 8;
             }
 
             if(c.preference == Enums.BeerType.Ale){
-                number = getRandomValue(0, Alelist.size());
+                number = getRandomValue(0, Alelist.size()-1);
                 buy = Alelist.get(number);
+                buy.BeersSold += 1;
+                buy.beerStockOunces -= 8;
             }
 
             out ("Customer " + c.name + " has bought the beer " + buy.name + " from the bartender " + name + ".");
