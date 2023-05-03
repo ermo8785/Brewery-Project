@@ -103,36 +103,42 @@ class addNewBeer implements Manager_interface, SysOut{
                     input = false;
                     n = new IPA(newBeerName);
                     Nebula.beerInStock.add(n);
+                    Nebula.budget -= 2000.00;
                     break;
 
                 case "lager":
                     input = false; 
                     n = new Lager(newBeerName);
                     Nebula.beerInStock.add(n);
+                    Nebula.budget -= 2000.00;
                     break;
 
                 case "stout":
                     input = false; 
                     n = new Stout(newBeerName);
                     Nebula.beerInStock.add(n);
+                    Nebula.budget -= 2000.00;
                     break;
 
                 case "ale":
                     input = false; 
                     n = new Ale(newBeerName);
                     Nebula.beerInStock.add(n);
+                    Nebula.budget -= 2000.00;
                     break;
 
                 case "sour":
                     input = false; 
                     n = new Sour(newBeerName);
                     Nebula.beerInStock.add(n);
+                    Nebula.budget -= 2000.00;
                     break;
 
                 case "porter":
                     input = false; 
                     n = new Porter(newBeerName);
                     Nebula.beerInStock.add(n);
+                    Nebula.budget -= 2000.00;
                     break;
 
                 default:
@@ -140,7 +146,7 @@ class addNewBeer implements Manager_interface, SysOut{
             }
             
         }
-        return("Beer " + newBeerName + " has been added! Good Job brewster!");
+        return("Beer " + newBeerName + " has been added! Good Job brewster! The budget is now " +Utility.asDollar(Nebula.budget));
     }
 
 }
@@ -192,7 +198,7 @@ class showInventory implements Manager_interface, SysOut{ // Function will show 
     StringBuilder Beers = new StringBuilder();
     public String execute(Brewery Nebula){
         for (Beer i: Nebula.beerInStock){
-            Beers.append(i.name + " Beer Sold: " + i.BeersSold + " Beer Stock: " + i.beerStockOunces+ "\n");
+            Beers.append(i.name + "|| Beer Sold: " + i.BeersSold + " || Beer Stock: " + i.beerStockOunces+ "\n");
         }
         return Beers.toString();
     }
@@ -218,6 +224,7 @@ class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer
         Boolean loop = true;
         final int ouncesNeeded = 10000; // change to 8000
         int need = 0;
+        
         while(loop){
             String beerToStock = restockObj.nextLine();
             for (int i = 0; i < Nebula.beerInStock.size(); i++){
@@ -230,6 +237,7 @@ class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer
                         need = ouncesNeeded - beerStockOunces;
                         out("Restocking chosen beer: " +Nebula.beerInStock.get(i).name + "...");
                         Nebula.beerInStock.get(i).beerStockOunces += need;
+                        Nebula.budget -= Nebula.beerInStock.get(i).cost;
                     }
                     restocked = true;
                     break;
@@ -247,8 +255,8 @@ class restockBeer implements Manager_interface, SysOut{ //Needed to restock beer
             }
         }
         if (restocked){
-            returnBeer = "Beer has been stocked! Added " +need+ " ounces.";
-            
+            returnBeer = "Beer has been stocked! Added " +need+ " ounces. The budget is now "+Utility.asDollar(Nebula.budget);
+
         }
         else {
             returnBeer = "Unable to stock beer.";

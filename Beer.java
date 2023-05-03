@@ -34,7 +34,7 @@ class IPA extends Beer {
         super();
         name = "Milky Way IPA";
         type = Enums.BeerType.IPA;
-        cost = 4.50;
+        cost = 120.00;
         price = 7.00;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.00; 
@@ -46,7 +46,7 @@ class IPA extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.IPA;
-        cost = 4.50;
+        cost = 120.00;
         price = 7.00;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.00; 
@@ -60,18 +60,18 @@ class Porter extends Beer {
         super();
         name = "Pluto's Porter";
         type = Enums.BeerType.Porter;
-        cost = 4.00;
+        cost = 150.00;
         price = 8.00;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 7.1; 
         BeersSold = 0;
-        beerStockOunces = 0; // Will cost 400 dollars to make 8000 ounces
+        beerStockOunces = 8000; // Will cost 400 dollars to make 8000 ounces
     }
     Porter(String beerName) {
         super();
         name = beerName;
         type = Enums.BeerType.Porter;
-        cost = 4.00;
+        cost = 150.00;
         price = 8.00;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 7.1; 
@@ -85,7 +85,7 @@ class Sour extends Beer {
         super();
         name = "Meteor Sour";
         type = Enums.BeerType.Sour;
-        cost = 2.50;
+        cost = 125.00;
         price = 5.00;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 4.5; 
@@ -96,7 +96,7 @@ class Sour extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.Sour;
-        cost = 2.50;
+        cost = 125.00;
         price = 5.00;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 4.5; 
@@ -110,7 +110,7 @@ class Stout extends Beer {
         super();
         name = "Galactical Stout";
         type = Enums.BeerType.Stout;
-        cost = 4.50;
+        cost = 140.00;
         price = 9.00;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 9.1; 
@@ -121,7 +121,7 @@ class Stout extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.Stout;
-        cost = 4.50;
+        cost = 140.00; //
         price = 9.00;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 9.1; 
@@ -134,7 +134,7 @@ class Ale extends Beer {
         super();
         name = "Space Ale-ien";
         type = Enums.BeerType.Ale;
-        cost = 4.50;
+        cost = 115.00;
         price = 7.00;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.0;
@@ -145,7 +145,7 @@ class Ale extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.Ale;
-        cost = 4.50;
+        cost = 115.00;
         price = 7.00;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.0;
@@ -158,7 +158,7 @@ class Lager extends Beer {
         super();
         name = "Nova Lager";
         type = Enums.BeerType.Lager;
-        cost = 2.50;
+        cost = 100.00;
         price = 6.50;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.00; 
@@ -169,7 +169,7 @@ class Lager extends Beer {
         super();
         name = beerName;
         type = Enums.BeerType.Lager;
-        cost = 2.50;
+        cost = 100.00;
         price = 6.50;
         HappyPrice = 4.00; //Four dollar Beers!
         alcVol = 6.00; 
