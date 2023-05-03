@@ -1,7 +1,7 @@
 // Importing necessary Java libraries
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
+import java.util.Arrays;import java.util.concurrent.ThreadLocalRandom;
 
 // An abstract class representing an Employee
 public abstract class Employee implements SysOut{
@@ -57,6 +57,28 @@ class Bartender extends Employee{
         type = Enums.EmployeeType.Bartender;
         name = namer.getNext();
         pay = 60.00;
+    }
+
+    // https://www.geeksforgeeks.org/how-do-i-generate-random-integers-within-a-specific-range-in-java/
+    // Below is a function to generate a random integer within a range 
+    public static int getRandomValue(int Min, int Max){
+  
+        // Get and return the random integer
+        // within Min and Max
+        return ThreadLocalRandom
+            .current()
+            .nextInt(Min, Max + 1);
+    }
+
+    public static boolean checkForIndex(ArrayList<Integer>idxs, int index){
+        boolean val = false;
+        for (int i = 0; i < idxs.size(); i++){
+            if (index == idxs.get(i)){
+                val = true;
+            }
+        }
+        return val;
+        
     }
     
     // Method for serving beer to a customer, given a list of available beers
@@ -118,7 +140,41 @@ class Bartender extends Employee{
         double chance = Utility.rnd();
 
         if (chance <= saleChance){ // TODO: Customer needs to buy a specfic beer from the inventory and you can reduce the ounces and add to beers sold to that specfic beer 
-            out("Customer "+c.name+" got his beer from "+ name);
+            boolean random = true;
+            boolean check;
+            int count = 0;
+            ArrayList <Integer> Idx = new ArrayList<>();
+            while (random){
+                boolean Clear = true;
+                int beer = getRandomValue(0, beerInStock.size()-1);
+                Idx.add(beer);
+                // For loop will check to see if the index has already been checked for the type of beer
+                check = checkForIndex(Idx, beer);
+                while (Clear){
+                    if (!check){
+                        beer = getRandomValue(0, beerInStock.size()-1);
+                        check = checkForIndex(Idx, beer);
+                    }
+                    else if (check){
+                        Clear = false;
+                    }
+                }
+                // The next couple of lines check to see if the beer is of the type the customer wants
+                Beer beerName = beerInStock.get(beer);
+                if (beerName.type == c.preference){
+                    beerName.BeersSold += 1;
+                    beerName.beerStockOunces -= 8;
+                    out("Customer "+c.name+" bought a "+ beerName.name + " from bartender " +name);
+                    random = false;
+                }
+                else if (count > beerInStock.size()){
+                    out ("BEER WAS NOT FOUND TO CHANGE STUFF");
+                    random = false;
+                }
+
+                count ++;
+            }
+
             return b;
         }
         else{
