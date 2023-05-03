@@ -227,7 +227,8 @@ public class Brewery implements SysOut {
     
         // Pay employees
         payEmployees();
-}
+        reportOut(day);
+    }
     
 
     void normalDay(Enums.DayOfWeek day){
@@ -291,7 +292,7 @@ public class Brewery implements SysOut {
         out("Number of types of beers in stock: "+beerInStock.size());
         textOut = textOut.concat("Number of types of beers in stock: "+beerInStock.size()+" \n");
         out("Beers sold today: " +soldBeer.size());
-        textOut = textOut.concat("Beers sold today: " +soldBeer.size());
+        textOut = textOut.concat("Beers sold today: " +soldBeer.size()+ " \n");
         out("Current number of employees: "+employeeList.size());
         textOut = textOut.concat("Current number of employees: "+employeeList.size()+" \n");
         out("Current number of employees who quit or have been fired: " + departedEmployees.size());

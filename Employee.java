@@ -124,7 +124,7 @@ class Bartender extends Employee{
 
             }
             else{ // no sale for this customer
-                out("Customer " + b.name + " decided not to get any beers today.");
+                out("Customer " + c.name + " decided not to get any beers today.");
                 return null;
             }
         }
