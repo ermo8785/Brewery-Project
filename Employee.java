@@ -162,49 +162,85 @@ class Bartender extends Employee{
             }
 
             if(c.preference == Enums.BeerType.IPA){
-                number = getRandomValue(0, IPAlist.size()-1);
-                buy = IPAlist.get(number);
-                buy.BeersSold += 1;
-                buy.beerStockOunces -= 8;
+                if(IPAlist.size() != 0){
+                    number = getRandomValue(0, IPAlist.size()-1);
+                    buy = IPAlist.get(number);
+                    buy.BeersSold += 1;
+                    buy.beerStockOunces -= 8;
+                }
+                else{
+                    out("We're out of this type of beer! Make a new one!");
+                }
             }
 
             if(c.preference == Enums.BeerType.Porter){
-                number = getRandomValue(0, Porterlist.size()-1);
-                buy = Porterlist.get(number);
-                buy.BeersSold += 1;
-                buy.beerStockOunces -= 8;
+                if(Porterlist.size() != 0){
+                    number = getRandomValue(0, Porterlist.size()-1);
+                    buy = Porterlist.get(number);
+                    buy.BeersSold += 1;
+                    buy.beerStockOunces -= 8;
+                }
+                else{
+                    out("We're out of this type of beer! Make a new one!");
+                }
             }
 
             if(c.preference == Enums.BeerType.Lager){
-                number = getRandomValue(0, Lagerlist.size()-1);
-                buy = Lagerlist.get(number);
-                buy.BeersSold += 1;
-                buy.beerStockOunces -= 8;
+                if(Lagerlist.size() != 0){
+                    number = getRandomValue(0, Lagerlist.size()-1);
+                    buy = Lagerlist.get(number);
+                    buy.BeersSold += 1;
+                    buy.beerStockOunces -= 8;
+                }
+                else{
+                    out("We're out of this type of beer! Make a new one!");
+                }
             }
 
             if(c.preference == Enums.BeerType.Sour){
-                number = getRandomValue(0, Sourlist.size()-1);
-                buy = Sourlist.get(number);
-                buy.BeersSold += 1;
-                buy.beerStockOunces -= 8;
+                if(Sourlist.size() != 0){
+                    number = getRandomValue(0, Sourlist.size()-1);
+                    buy = Sourlist.get(number);
+                    buy.BeersSold += 1;
+                    buy.beerStockOunces -= 8;
+                }
+                else{
+                    out("We're out of this type of beer! Make a new one!");
+                }
             }
 
             if(c.preference == Enums.BeerType.Stout){
-                number = getRandomValue(0, Stoutlist.size()-1);
-                buy = Stoutlist.get(number);
-                buy.BeersSold += 1;
-                buy.beerStockOunces -= 8;
+                if(Stoutlist.size() != 0){
+                    number = getRandomValue(0, Stoutlist.size()-1);
+                    buy = Stoutlist.get(number);
+                    buy.BeersSold += 1;
+                    buy.beerStockOunces -= 8;
+                }
+                else{
+                    out("We're out of this type of beer! Make a new one!");
+                }
             }
 
             if(c.preference == Enums.BeerType.Ale){
-                number = getRandomValue(0, Alelist.size()-1);
-                buy = Alelist.get(number);
-                buy.BeersSold += 1;
-                buy.beerStockOunces -= 8;
+                if(Alelist.size() != 0){
+                    number = getRandomValue(0, Alelist.size()-1);
+                    buy = Alelist.get(number);
+                    buy.BeersSold += 1;
+                    buy.beerStockOunces -= 8;
+                }
+                else{
+                    out("We're out of this type of beer! Make a new one!");
+                }
             }
 
-            out ("Customer " + c.name + " has bought the beer " + buy.name + " from the bartender " + name + ".");
-            return b;
+            if (buy.name == null){
+                out("Customer could not get a type of beer because we did not have it in stock");
+                return b;
+            }
+            else{
+                out ("Customer " + c.name + " has bought the beer " + buy.name + " from the bartender " + name + ".");
+                return b;
+            }
         }
 
 
