@@ -181,6 +181,46 @@ public class Brewery implements SysOut {
 
         // Hire employees
         hireEmployees();
+        ArrayList <Beer> IPAlist;
+        ArrayList <Beer> Porterlist;
+        ArrayList <Beer> Stoutlist;
+        ArrayList <Beer> Lagerlist;
+        ArrayList <Beer> Sourlist;
+        ArrayList <Beer> Alelist;
+
+        IPAlist = new ArrayList<>();
+        Porterlist = new ArrayList<>();
+        Stoutlist = new ArrayList<>();
+        Lagerlist = new ArrayList<>();
+        Sourlist = new ArrayList<>();
+        Alelist = new ArrayList<>();
+
+        for (int i = 0; i < beerInStock.size(); i ++){
+            Beer name = beerInStock.get(i);
+            if (name.type == Enums.BeerType.IPA){
+                IPAlist.add(name);
+            }
+
+            if (name.type == Enums.BeerType.Stout){
+                Stoutlist.add(name);
+            }
+
+            if (name.type == Enums.BeerType.Sour){
+                Sourlist.add(name);
+            }
+
+            if (name.type == Enums.BeerType.Porter){
+                Porterlist.add(name);
+            }
+
+            if (name.type == Enums.BeerType.Lager){
+                Lagerlist.add(name);
+            }
+
+            if (name.type == Enums.BeerType.IPA){
+                Alelist.add(name);
+            }
+        }
         
         // Print message about bartenders serving customers
         out("The bartenders are serving customers...");
@@ -274,8 +314,8 @@ public class Brewery implements SysOut {
                 Lagerlist.add(name);
             }
 
-            if (name.type == Enums.BeerType.IPA){
-                IPAlist.add(name);
+            if (name.type == Enums.BeerType.Ale){
+                Alelist.add(name);
             }
         }
     
